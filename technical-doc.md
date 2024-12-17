@@ -6,11 +6,18 @@
   - [Miçangas](#miçangas)
     - [Canjicão](#canjicão)
     - [Canjicão Cristal](#canjicão-cristal)
+    - [Miçanguinha](#miçanguinha)
     - [Rajadão](#rajadão)
     - [Rajado](#rajado)
-    - [Miçanguinha](#miçanguinha)
+  - [Cristais](#cristais)
+    - [Cristalzinho](#cristalzinho)
+    - [Cristal](#cristal)
+    - [Cristalzão](#cristalzão)
+    - [Leitosinho](#leitosinho)
+    - [Leitoso](#leitoso)
+    - [Leitosão](#leitosão)
 
-## TEMPLATES
+## TEMPLATES GRÁFICOS
 
 Abaixo seguem os trechos do código das tmaplates SVG que devem ser dinâmicos:
 
@@ -19,39 +26,216 @@ Abaixo seguem os trechos do código das tmaplates SVG que devem ser dinâmicos:
 #### Canjição
 
 ```svg
-<stop style="stop-color:#000000; stop-opacity:1" offset="1"/>
+<!-- line 28 -->
+style="stop-color:#000000; stop-opacity:1" offset="1"
 ```
 
 #### Canjicão Cristal
 
 ```svg
-<stop style="stop-color:#000000;stop-opacity:0.5" offset="1" />
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:0.5" offset="1"
+```
+### Miçanguinha
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000; stop-opacity:1" offset="1"
 ```
 
 ### Rajadão
 
 ```svg
 <!-- center -->
-<stop style="stop-color:#ff0000;stop-opacity:1;" offset="0" />
-<stop style="stop-color:#ff0000;stop-opacity:1;" offset="0" />
+<!-- line 24 -->
+style="stop-color:#ff0000;stop-opacity:1;" offset="0"
+<!-- line 28 -->
+style="stop-color:#ff0000;stop-opacity:1;" offset="0"
 
 <!-- sides -->
-<stop style="stop-color:#000000;stop-opacity:1" offset="1" />
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
 ```
 
 ### Rajado
 
 ```svg
 <!-- center -->
-<stop style="stop-color:#ff0000;stop-opacity:1;" offset="0" />
-<stop style="stop-color:#ff0000;stop-opacity:0;"  offset="1" />
+<!-- line 24 -->
+style="stop-color:#ff0000;stop-opacity:1;" offset="0"
+<!-- line 28 -->
+style="stop-color:#ff0000;stop-opacity:1;" offset="0"
 
 <!-- sides -->
-<stop style="stop-color:#000000;stop-opacity:1" offset="1" />
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
 ```
 
-### Miçanguinha
+## Cristais
+
+### Cristalzinho
 
 ```svg
-<stop style="stop-color:#000000; stop-opacity:1" offset="1"/>
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+```
+### Cristal
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+```
+
+### Cristalzão
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+```
+
+### Leitosinho
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.8 42675px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+```
+
+### Leitoso
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.4 19351px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+```
+
+### Leitosão
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 256 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 264-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 272 -->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
+
+<!-- line 282-->
+style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
 ```
