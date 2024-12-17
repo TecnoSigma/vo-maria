@@ -239,3 +239,172 @@ style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;
 <!-- line 282-->
 style="fill:#000000;stroke:#ffffff;stroke-width:0.3 74892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968"
 ```
+
+### Dourado pequeno
+
+```svg
+<!-- line 28 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+```
+
+### Dourado médio
+
+```svg
+<!-- line 28 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+tyle="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+```
+
+### Dourado grande
+
+```svg
+<!-- line 28 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#b8860b;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+tyle="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#b8860b;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+```
+
+### Prateado pequeno
+
+```svg
+<!-- line 28 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+```
+
+### Prateado médio
+
+```svg
+<!-- line 28 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stro
+```
+
+### Prateado grande
+
+```svg
+<!-- line 28 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#a9a9a9;stop-opacity:1" offset="1"
+
+<!-- line 252 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 260 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 268 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.502968;fill-opacity:1"
+
+<!-- line 278 -->
+style="fill:#a9a9a9;stroke:#ffffff;stroke-width:0.264 582px;stroke-linecap:butt;stro
+```
+
