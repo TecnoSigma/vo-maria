@@ -61,6 +61,8 @@
     - [Peixe crisral](#peixe-cristal)
     - [Peixe rajado](#peixe-rajado)
     - [Peixe cristal rajado](#peixe-cristal-rajado)
+  - [Corais](#corais)
+    - [Coral](#coral)
 
 ## TEMPLATES GRÁFICOS
 
@@ -1079,4 +1081,13 @@ style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-li
 
 <!-- line 340 -->
 style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+```
+
+### Corais
+
+#### Corais
+
+```svg
+<!-- line 40-->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
 ```
