@@ -1,0 +1,58 @@
+@startuml
+title "Necklace Gnerator\nGerador de fios de contas"
+        actor User
+        participant Necklace
+
+        alt #lightgreen Primeiro acesso?
+                User -> Necklace : Informa dados de acesso
+        else #lightpink
+                User -> Necklace : Cria conta
+                note over User : Autentica com Google ou\n informa email válido
+
+                Necklace -> User : Envia email de confirmação
+                User -> User : Clica no email para validar
+        end
+
+        User -> Necklace : Acessa tela de login
+        User -> Necklace : Informa email e senha
+        Necklace -> Necklace : Valida dados
+
+        alt #lightgreen Dados válidos?
+                Necklace -> User : Redireciona para tela principal
+                User -> Necklace : Escolhe um ou mais materiais
+                User -> Necklace : Escolhe opção de criação
+
+                alt #lightgreen Escolhe material único
+                end
+
+                alt #lightgreen Escolhe material múltiplo
+                        User -> Necklace : Informa quantidade de materiais
+                        User -> Necklace : Escolhe as cores dos materiais
+
+                        alt #lightgreen Escolhe intercalado
+                        end
+
+                        alt #lightgreen Escolhe randomizado
+                        end
+                end
+
+                Necklace -> Necklace : Gera fio de contas
+                Necklace -> User : Exibe fio de contas
+                note over User : Usuário pode dar\n zoom na imagem
+
+                alt #lightgreen Baixa imagem?
+                        User -> Necklace : Executa download da imagem
+                end
+
+                alt #lightgreen Gera link da imagem?
+                        User -> Necklace : Copia link da imagem
+                end
+
+                alt #lightgreen Envia link por email?
+                        User -> Necklace : Envia link por email cadastrado
+                end
+
+        else #lightpink
+                Necklace -> User : Exibe mensagem de erro
+        end
+@enduml
