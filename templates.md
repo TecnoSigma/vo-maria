@@ -63,6 +63,9 @@
     - [Peixe cristal rajado](#peixe-cristal-rajado)
   - [Corais](#corais)
     - [Coral](#coral)
+  - [Entremeios](#entremeios)
+    - [Oval aramado](#oval-aramado)
+    - [Bola aramada](#bola-aramada)
 
 ## TEMPLATES GRÁFICOS
 
@@ -1090,4 +1093,123 @@ style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-li
 ```svg
 <!-- line 40-->
 style="stop-color:#ff0000;stop-opacity:1" offset="1"
+```
+
+
+### Entremeios
+
+#### Oval aramado
+
+```svg
+<!-- line 258 -->
+style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.99926531;stop-color:#000000"
+
+<!-- line 267 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 274 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 281 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 288 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 295 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 302 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 309 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+```
+
+
+#### Bola aramada
+
+```svg
+<!-- line 262 -->
+style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 271 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 278 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 285 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 292 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 299 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 306 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+
+<!-- line 313 -->
+style="fill:none;stroke:#000000;stroke-width:1.72946;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+```
+
+#### Strass
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:0" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:0" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#ff0000;stop-opacity:0" offset="1"
+
+
+#### Luxo
+
+```svg
+<!-- line 28 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 40 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 52 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 64 -->
+style="stop-color:#000000;stop-opacity:1" offset="1"
+
+<!-- line 76 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 88 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 100 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 112 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 124 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 136 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 148 -->
+style="stop-color:#ff0000;stop-opacity:1" offset="1"
+
+<!-- line 335 -->
+style="fill:#000000;stroke:none;stroke-width:2.07836;stroke-opacity:0.999265;stop-color:#000000"
+
+<!-- line 358 -->
+style="fill:#000000;stroke:none;stroke-width:2.07836;stroke-opacity:0.999265;stop-color:#000000"
+
+<!-- line 404 -->
+style="fill:#000000;stroke:none;stroke-width:2.07836;stroke-opacity:0.999265;stop-color:#000000"
 ```
