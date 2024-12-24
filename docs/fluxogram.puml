@@ -7,7 +7,7 @@ title "Necklace Gnerator\nGerador de fios de contas"
                 User -> Necklace : Informa dados de acesso
         else #lightpink
                 User -> Necklace : Cria conta
-                note over User : Autentica com Google ou\n informa email válido
+                note over User : Autentica com Google\n ou informa nome\n email válido
 
                 Necklace -> User : Envia email de confirmação
                 User -> User : Clica no email para validar

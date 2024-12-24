@@ -1,0 +1,70 @@
+@startuml
+title "Onboarding do usuário\n"
+
+split
+        (A)
+        -[hidden]->
+split again
+        start
+        #palegreen:"Como você se chama?">
+        #lightblue:"João"<
+        #palegreen:"Quer criar seu fio?">
+        if () then (sim)
+                split
+                         :Vários materiais;
+                         #palegreen:"Qual será a quantidade de material?">
+                         #lightblue:"999"<
+                 split again
+                         :Material único;
+                 end split
+                 #palegreen:"Qual será o material?">
+                 #lightblue:"Murano"<
+                 #palegreen:"Qual é o tipo?"<
+                 if () then (liso)
+                         #palegreen:"Escolha a cor">
+                 else (rajado)
+                         #palegreen:"Escolha as cores">
+                         note right
+                                 Primeira
+                                 e segunda cor
+                         end note
+                 endif
+                 #palegreen:"Quer ver seu fio?">
+                 if () then (sim)
+                         :Gera o fio|
+                         :Apresenta resultados;
+                         fork
+                                 :Renderiza Imagem|
+                         fork again
+                                 :Cria Permalink|
+                         fork again
+                                 :Disponibiliza Download|
+                         end merge
+                         #palegreen:"Quer criar outro fio?">
+                         if () then (sim)
+                                 :Volta para o início;
+                                 end
+                         else (não)
+                                 #palegreen:"Se precisar, chama a Vó!">
+                                 #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                                 end
+                         endif
+                 else (não)
+                         #palegreen:"Deseja recomeçar?">
+                         if () then (sim)
+                                 :Voltar do início;
+                                 (A)
+                                 -[hidden]->
+                         else (não)
+                                 #palegreen:"Se precisar, chama a Vó!">
+                                 #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                                 end
+                         endif
+                 endif
+        else (não)
+                #palegreen:"Se precisar, chama a Vó!">
+                #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                end
+        endif
+end split
+@enduml
