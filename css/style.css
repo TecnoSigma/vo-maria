@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Modak&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+        --font-family: 'Ubuntu', sans-serif;
+
+        --background-color: #FFF2CC;
+
+        --dialog-grandmamma-background-color: #D5E8D4;
+
+        --dialog-font-color: #006600;
+
+        --dialog-button: #CDA2BE;
+        --dialog-font-color-button: #ffffff;
+        --dialog-font-color-button-hover: #CDA2BE;
+        --dialog-button-hover: #ffffff;
+
+        --dialog-select: #CDA2BE;
+        --dialog-font-color-select: #ffffff;
+
+        --dialog-select-selected: #CDA2BE;
+
+        --separator-color: #006600;
+
+        --shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+}
+
+html {
+        background-color: var(--background-color);
+        font-family: var(--font-family);
+}
+
+button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--dialog-button);
+        color: var(--dialog-font-color-button);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: background-color 0.3s, color 0.3s;
+        text-transform: uppercase;
+}
+  button:hover {
+        background-color: var(--dialog-button-hover);
+        color: var(--dialog-font-color-button-hover);
+        transition: background-color 0.3s, color 0.3s;
+}
+
+select {
+        padding: 10px 20px;
+        background-color: var(--dialog-select);
+        color: var(--dialog-font-color-select);
+        border: none;
+        border-radius: 5px;
+        box-shadow: var(--shadow);
+        transition: background-color 0.3s, color 0.3s;
+        text-transform: uppercase;
+}
+  select:hover {
+        background-color: var(--dialog-button-hover);
+        color: var(--dialog-font-color-button-hover);
+        transition: background-color 0.3s, color 0.3s;
+
+}
+  select:focus {
+        border: none;
+        outline: none;
+}
+    select:focus option:checked {
+            background: var(--dialog-select-selected)
+                        linear-gradient(
+                        0deg,
+                        var(--dialog-select-selected) 0%,
+                        var(--dialog-select-selected) 100%
+                        );
+    }
+
+.container {
+        padding: 50px 200px;
+
+}
+
+.separator {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--separator-color);
+        margin: 10px 0px;
+}
+
+.dialog {
+        margin: 30px 0px 0px 50px;
+}
+
+.dialog p {
+        font-size: 1.5rem;
+        color: var(--dialog-font-color);
+}
+
+.avatar {
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+}
+
+.avatar .avatar-image {
+        background-color: #ffffff;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: var(--shadow);
+}
+
+.avatar .avatar-image img {
+        width: 100px;
+        margin: 0 auto;
+}
+
+.avatar .avatar-name {
+        display: block;
+        position: relative;
+        width: 300px;;
+        margin: 40px 0px 0px 20px;
+        width: 500px;
+}
+
+.avatar .avatar-name span {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--dialog-font-color);
+}
+
+.dialogs .say-your-name,
+.dialogs .avatar-type,
+.dialogs .create-necklace,
+.dialogs .materials-diversity,
+.dialogs .inform-material-quantity,
+.dialogs .inform-materials,
+.dialogs .materials-distribution,
+.dialogs .ordenation,
+.dialogs .material-characteristic,
+.dialogs .material-color,
+.dialogs .see-necklace,
+.dialogs .necklace-image,
+.dialogs .create-other-necklace,
+.dialogs .start-again,
+.dialogs .call-grandmamma {
+        display:block;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        margin: 30px 0px;
+        background-color: var(--dialog-grandmamma-background-color);
+}
+
+.dialogs .say-your-name .dialog input {
+        width: 300px;
+        margin-bottom: 30px;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #006600;
+        background-color: transparent;
+        font-size: 1.5rem;
+        color: var(--dialog-font-color);
+}
+  .dialogs .say-your-name .dialog input:focus {
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #006600;
+}
+
+.dialogs .avatar-type .dialog .avatars {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+}
+
+.dialogs .avatar-type .dialog .avatars img {
+        width: 80px;
+        margin: 0 auto;
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform 0.3s;
+        box-shadow: var(--shadow);
+}
+  .dialogs .avatar-type .dialog .avatars img:hover {
+          transform: scale(1.2);
+          transition: transform 0.3s;
+  }
+
+.dialogs .inform-material-quantity .quantity,
+.dialogs .inform-materials .materials,
+.dialogs .ordenation .sequence,
+.dialogs .material-characteristic .characteristics,
+.dialogs .necklace-image .necklace {
+        display: block;
+        margin-bottom: 30px;
+}
+
+.dialogs .inform-materials .dialog .materials select {
+        height: 120px;
+        overflow-y: auto;
+}
