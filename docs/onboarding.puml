@@ -8,18 +8,29 @@ split again
         start
         #palegreen:"Como você se chama?">
         #lightblue:"João"<
+        #palegreen:"Que avatar te representa?">
+        #lightblue:"Avatar 1"<
         #palegreen:"Quer criar seu fio?">
         if () then (sim)
+                #lightgreen:"Você utilizará um único material ou diversos?">
                 split
                          :Vários materiais;
-                         #palegreen:"Qual será a quantidade de material?">
+                         #palegreen:"Quantos materiais você quer usar?">
                          #lightblue:"999"<
+
                  split again
                          :Material único;
                  end split
-                 #palegreen:"Qual será o material?">
-                 #lightblue:"Murano"<
-                 #palegreen:"Qual é o tipo?"<
+                 #palegreen:"Quais materiais que você quer usar?">
+                 #lightblue:"Material #1"<
+                 #lightgreen:"Como você quer distribuir os materiais?">
+                 if () then (forma ordenada)
+                         #palegreen:"Escolha a ordenação">
+                         #lightblue:"7"<
+                 else (forma aleatória)
+                 endif
+                 repeat
+                 #palegreen:"Qual é o tipo do material?">
                  if () then (liso)
                          #palegreen:"Escolha a cor">
                  else (rajado)
@@ -29,6 +40,7 @@ split again
                                  e segunda cor
                          end note
                  endif
+                 repeat while (Existem mais materiais?) is (sim) not (não)
                  #palegreen:"Quer ver seu fio?">
                  if () then (sim)
                          :Gera o fio|
@@ -50,7 +62,7 @@ split again
                                  end
                          endif
                  else (não)
-                         #palegreen:"Deseja recomeçar?">
+                         #palegreen:"Quer começar de novo?">
                          if () then (sim)
                                  :Voltar do início;
                                  (A)
