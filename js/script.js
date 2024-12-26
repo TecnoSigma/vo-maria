@@ -17,6 +17,9 @@ $(document).ready(function() {
                         $('#createNecklace').fadeIn(fadeDefault);
 
                         moveToBottom();
+
+                        disableElement($('#userName'));
+                        disableElement($(this));
                 }
         });
 
@@ -28,6 +31,9 @@ $(document).ready(function() {
                 $('#materialsDiversity').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#noCreateNecklaceBtn'));
+                disableElement($(this));
         });
 
         $('#noCreateNecklaceBtn').click(function() {
@@ -38,6 +44,9 @@ $(document).ready(function() {
                 $('#callGrandmamma').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#yesCreateNecklaceBtn'));
+                disableElement($(this));
         });
 
         $('#materialUniqueBtn').click(function() {
@@ -47,6 +56,9 @@ $(document).ready(function() {
                 $('#informMaterialQuantity').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#materialVariousBtn'));
+                disableElement($(this));
         });
 
         $('#materialVariousBtn').click(function() {
@@ -56,6 +68,9 @@ $(document).ready(function() {
                 $('#informMaterialQuantity').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#materialUniqueBtn'));
+                disableElement($(this));
         });
 
         $('#confirmMaterialQuantityBtn').click(function() {
@@ -79,6 +94,9 @@ $(document).ready(function() {
                 $('#informMaterials').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#materialQuantitySelect'));
+                disableElement($(this));
         });
 
         $('#confirmMaterialBtn').click(function() {
@@ -95,6 +113,9 @@ $(document).ready(function() {
                 }
 
                 moveToBottom();
+
+                disableElement($('#materialSelect'));
+                disableElement($(this));
         });
 
         $('#randomOptionBtn').click(function() {
@@ -113,6 +134,9 @@ $(document).ready(function() {
                 $('#materialCharacteristic').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#randomOptionBtn'));
+                disableElement($(this));
         });
 
         $('#orderedOptionBtn').click(function() {
@@ -131,6 +155,9 @@ $(document).ready(function() {
                 $('#ordenation').fadeIn(fadeDefault);
 
                 moveToBottom();
+
+                disableElement($('#orderedOptionBtn'));
+                disableElement($(this));
         });
 });
 
@@ -140,4 +167,8 @@ function moveToBottom() {
 
 function sleep() {
         setTimeout(function() {}, 1000);
+}
+
+function disableElement(element) {
+        element.attr('disabled', 'disabled');
 }
