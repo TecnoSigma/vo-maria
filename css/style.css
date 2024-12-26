@@ -3,8 +3,6 @@
 :root {
         --font-family: 'Ubuntu', sans-serif;
 
-        --background-color: #FFF2CC;
-
         --dialog-grandmamma-background-color: #D5E8D4;
 
         --dialog-font-color: #006600;
@@ -25,7 +23,7 @@
 }
 
 html {
-        background-color: var(--background-color);
+        background: linear-gradient(#050505, #18181d);
         font-family: var(--font-family);
 }
 
@@ -76,9 +74,18 @@ select {
                         );
     }
 
+.hide-card {
+        display: none;
+        transition: display 0.5s;
+}
+
+.show-card {
+        display: block;
+        transition: display 0.5s;
+}
+
 .container {
         padding: 50px 200px;
-
 }
 
 .separator {
@@ -145,7 +152,6 @@ select {
 .dialogs .create-other-necklace,
 .dialogs .start-again,
 .dialogs .call-grandmamma {
-        display:block;
         padding: 40px;
         border-radius: 10px;
         box-shadow: var(--shadow);
@@ -198,6 +204,5 @@ select {
 }
 
 .dialogs .inform-materials .dialog .materials select {
-        height: 120px;
         overflow-y: auto;
 }

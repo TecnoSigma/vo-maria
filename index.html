@@ -4,13 +4,16 @@
     <title>Vó Maria</title>
     <meta charset='utf-8'>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="dialogs">
 
         <!-- Starts say-your-name section -->
-        <section class="say-your-name" id="say-your-name">
+        <section class="say-your-name show-card" id="sayYourName">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Grand Mamma">
@@ -23,17 +26,16 @@
           <div class="dialog">
             <p>Motumbá! Mukuiyu! Kolofé!</p>
             <p>Como você se chama?</p>
-            <input type="text">
+            <input type="text" id="userName">
             <div class="buttons">
-              <button>Confirmar</button>
+              <button id="ConfirmNameBtn">Confirmar</button>
             </div>
-
           </div>
         </section>
         <!-- Ends say-your-name section -->
 
         <!-- Starts create-necklace section -->
-        <section class="create-necklace" id="create-necklace">
+        <section class="create-necklace hide-card" id="createNecklace">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -44,17 +46,17 @@
             </div>
           </div>
           <div class="dialog">
-            <p>--nome--, quer criar seu fio?</p>
+            <p id="userQuestion"></p>
             <div class="buttons">
-              <button>Sim</button>
-              <button>Não</button>
+              <button id="yesCreateNecklaceBtn">Sim</button>
+              <button id="noCreateNecklaceBtn">Não</button>
             </div>
           </div>
         </section>
         <!-- Ends create-necklace section -->
 
         <!-- Starts materials-diversity section -->
-        <section class="materials-diversity" id="materials-diversity">
+        <section class="materials-diversity hide-card" id="materialsDiversity">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -67,15 +69,15 @@
           <div class="dialog">
             <p>Você utilizará um único material ou diversos?</p>
             <div class="buttons">
-              <button>Único</button>
-              <button>Diversos</button>
+              <button id="materialUniqueBtn">Único</button>
+              <button id="materialVariousBtn">Diversos</button>
             </div>
           </div>
         </section>
         <!-- Ends materials-diversity section -->
 
         <!-- Starts inform-material-quantity section -->
-        <section class="inform-material-quantity" id="inform-material-quantity">
+        <section class="inform-material-quantity hide-card" id="informMaterialQuantity">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -88,27 +90,22 @@
           <div class="dialog">
             <p>Quantos materiais você quer usar?</p>
             <div class="quantity">
-              <select>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+              <select id="materialQuantitySelect">
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="201">+ de 200</option>
               </select>
             </div>
             <div class="buttons">
-              <button>Confirmar</button>
+              <button id="confirmMaterialQuantityBtn">Confirmar</button>
             </div>
           </div>
         </section>
         <!-- Ends inform-material-quantity section -->
 
         <!-- Starts inform-material-name section -->
-        <section class="inform-materials" id="inform-materials">
+        <section class="inform-materials hide-card" id="informMaterials">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -119,25 +116,25 @@
             </div>
           </div>
           <div class="dialog">
-            <p>Quais materiais que você quer usar?</p>
+            <p id="materialQuestion"></p>
             <div class="materials">
-              <select multiple>
-                <option>Corais</option>
-                <option>Cristais</option>
-                <option>Entremeios</option>
-                <option>Miçangas</option>
-                <option>Muranos</option>
+              <select id="materialSelect">
+                <option value="corals">Corais</option>
+                <option value="crystals">Cristais</option>
+                <option value="insets">Entremeios</option>
+                <option value="beads">Miçangas</option>
+                <option value="muranos">Muranos</option>
               </select>
             </div>
             <div class="buttons">
-              <button>Confirmar</button>
+              <button id="confirmMaterialBtn">Confirmar</button>
             </div>
           </div>
         </section>
         <!-- Ends inform-materials section -->
 
         <!-- Starts materials-distribution section -->
-        <section class="materials-distribution" id="materials-distribution">
+        <section class="materials-distribution hide-card" id="materialsDistribution">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -150,15 +147,15 @@
           <div class="dialog">
             <p>Como você quer distribuir os materiais?</p>
             <div class="buttons">
-              <button>De forma aleatória</button>
-              <button>De forma ordenada</button>
+              <button id="randomOptionBtn">Aleatória</button>
+              <button id="orderedOptionBtn">Ordenada</button>
             </div>
           </div>
         </section>
         <!-- Ends materials-distribution section -->
 
         <!-- Starts ordenation section -->
-        <section class="ordenation" id="ordenation">
+        <section class="ordenation hide-card" id="ordenation">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -169,9 +166,9 @@
             </div>
           </div>
           <div class="dialog">
-            <p>Escolha a ordenação</p>
+            <p>Qual é a sequência de materiais?</p>
             <div class="sequence">
-              <select>
+              <select id="sequenceSelect">
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -181,14 +178,14 @@
               </select>
             </div>
             <div class="buttons">
-              <button>Confirmar</button>
+              <button id="confirmSequenceBtn">Confirmar</button>
             </div>
           </div>
         </section>
         <!-- Ends ordenation section -->
 
         <!-- Starts material-characteristic section -->
-        <section class="material-characteristic" id="material-characteristic">
+        <section class="material-characteristic hide-card" id="materialCharacteristic">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -199,7 +196,7 @@
             </div>
           </div>
           <div class="dialog">
-            <p>Qual é o tipo do --nome do material--?</p>
+            <p id="materialTypeQuestion"></p>
             <div class="characteristics">
               <select>
                 <option>Liso</option>
@@ -214,7 +211,7 @@
         <!-- Ends material-characteristic section -->
 
         <!-- Starts material-color section -->
-        <section class="material-color" id="material-color">
+        <section class="material-color hide-card" id="materialColor">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -225,7 +222,7 @@
             </div>
           </div>
           <div class="dialog">
-            <p>Qual é a cor do --nome do material--?</p>
+            <p>Qual é a cor do material?</p>
             <div class="colors">
               <!-- Open color picker -->
               <div class="buttons">
@@ -237,7 +234,7 @@
         <!-- Ends material-color section -->
 
         <!-- Starts see-necklace section -->
-        <section class="see-necklace" id="see-necklace">
+        <section class="see-necklace hide-card" id="seeNecklace">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -258,7 +255,7 @@
         <!-- Ends see-necklace section -->
 
         <!-- Starts necklace-images necklace-image section -->
-        <section class="necklace-image" id="necklace-image">
+        <section class="necklace-image hide-card" id="necklaceImage">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -271,7 +268,7 @@
           <div class="dialog">
             <p>Seu fio está pronto!</p>
             <div class="necklace">
-              <img src="img/necklace.png" alt="Necklace">
+              <!-- <img src="img/necklace.png" alt="Necklace"> -->
             </div>
             <div class="buttons">
               <button>Copiar link</button>
@@ -282,7 +279,7 @@
         <!-- Ends necklace-image section -->
 
         <!-- Starts create-other-necklace section -->
-        <section class="create-other-necklace" id="create-other-necklace">
+        <section class="create-other-necklace hide-card" id="createOtherNecklace">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -303,7 +300,7 @@
         <!-- Ends create-other-necklace section -->
 
         <!-- Starts start-again section -->
-        <section class="start-again" id="start-again">
+        <section class="start-again hide-card" id="startAgain">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
@@ -324,7 +321,7 @@
         <!-- Ends start-again section -->
 
         <!-- Starts regards section -->
-        <section class="call-grandmamma" id="call-grandmamma">
+        <section class="call-grandmamma hide-card" id="callGrandmamma">
           <div class="avatar">
             <div class="avatar-image">
               <img src="images/grandmamma.png" alt="Avatar">
