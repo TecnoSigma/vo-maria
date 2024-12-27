@@ -169,12 +169,12 @@
             <p>Qual é a sequência de materiais?</p>
             <div class="sequence">
               <select id="sequenceSelect">
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
               </select>
             </div>
             <div class="buttons">
@@ -198,13 +198,13 @@
           <div class="dialog">
             <p id="materialTypeQuestion"></p>
             <div class="characteristics">
-              <select>
-                <option>Liso</option>
-                <option>Rajado</option>
+              <select id="characteristicMaterialSelect">
+                <option value="liso">Liso</option>
+                <option value="rajado">Rajado</option>
               </select>
             </div>
             <div class="buttons">
-              <button>Confirmar</button>
+              <button id="confirmMaterialTypeBtn">Confirmar</button>
             </div>
           </div>
         </section>
@@ -226,7 +226,7 @@
             <div class="colors">
               <!-- Open color picker -->
               <div class="buttons">
-                <button>Confirmar</button>
+                <button id="confirmMaterialColorBtn">Confirmar</button>
               </div>
             </div>
           </div>
@@ -247,8 +247,8 @@
           <div class="dialog">
             <p>Quer ver seu fio?</p>
             <div class="buttons">
-              <button>Sim</button>
-              <button>Não</button>
+              <button id="yesSeeNecklanceBtn">Sim</button>
+              <button id="noSeeNecklanceBtn">Não</button>
             </div>
           </div>
         </section>
@@ -271,33 +271,14 @@
               <!-- <img src="img/necklace.png" alt="Necklace"> -->
             </div>
             <div class="buttons">
-              <button>Copiar link</button>
-              <button>Download</button>
+              <button id="copyLinkBtn">Copiar link</button>
+              <button id="downloadBtn">Download</button>
+              <button id="createOtherNecklanceBtn">Criar outro fio</button>
+              <button id="finishedBtn">Encerrar</button>
             </div>
           </div>
         </section>
         <!-- Ends necklace-image section -->
-
-        <!-- Starts create-other-necklace section -->
-        <section class="create-other-necklace hide-card" id="createOtherNecklace">
-          <div class="avatar">
-            <div class="avatar-image">
-              <img src="images/grandmamma.png" alt="Avatar">
-            </div>
-            <div class="avatar-name">
-              <span>Vó Maria</span>
-              <div class="separator"></div>
-            </div>
-          </div>
-          <div class="dialog">
-            <p>Quer criar outro fio?</p>
-            <div class="buttons">
-              <button>Sim</button>
-              <button>Não</button>
-            </div>
-          </div>
-        </section>
-        <!-- Ends create-other-necklace section -->
 
         <!-- Starts start-again section -->
         <section class="start-again hide-card" id="startAgain">
@@ -313,8 +294,8 @@
           <div class="dialog">
             <p>Quer começar de novo?</p>
             <div class="buttons">
-              <button>Sim</button>
-              <button>Não</button>
+              <button id="yesStartAgainBtn">Sim</button>
+              <button id="noStartAgainBtn">Não</button>
             </div>
           </div>
         </section>

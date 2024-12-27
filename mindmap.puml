@@ -1,0 +1,151 @@
+@startmindmap
+title "Mapa mental"
+
+*[#green] Início
+**[#green] Motumbá! Mukuiyu! Kolofé!\n\nComo você se chama?
+***[#green] João
+****[#green] Quer criar seu fio?
+*****_ não
+******[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*****_ sim
+******[#green] Você utilizará um único material ou diversos?
+*******_ material único
+********[#green] Quantos materiais você quer usar?
+*********[#green] 999
+**********[#green] Qual material que você quer usar?
+***********[#green] Material #1
+************_ coral ou entremeio
+*************[#green] Escolha a cor
+**************[#green] Quer ver seu fio?
+***************_ sim
+****************[#green] Seu fio está pronto!
+*****************[#lightpink] Download
+*****************[#lightpink] Copiar link
+*****************[#green] Criar outro fio
+******************[#green] Início
+*****************[#green] Encerrar
+******************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+***************_ não
+****************[#green] Quer começar de novo?
+*****************_ sim
+******************[#green] Início
+*****************_ não
+******************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+************_ outros
+*************[#green] Qual é o tipo do material?
+**************_ liso
+***************[#green] Escolha a cor
+****************[#green] Quer ver seu fio?
+*****************_ sim
+******************[#green] Seu fio está pronto!
+*******************[#lightpink] Download
+*******************[#lightpink] Copiar link
+*******************[#green] Criar outro fio
+********************[#green] Início
+*******************[#green] Encerrar
+********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*****************_ não
+******************[#green] Quer começar de novo?
+*******************_ sim
+********************[#green] Início
+*******************_ não
+********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+**************_ rajado
+***************[#green] Escolha a cor
+****************[#green] Quer ver seu fio?
+*****************_ sim
+******************[#green] Seu fio está pronto!
+*******************[#lightpink] Download
+*******************[#lightpink] Copiar link
+*******************[#green] Criar outro fio
+********************[#green] Início
+*******************[#green] Encerrar
+********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*****************_ não
+******************[#green] Quer começar de novo?
+*******************_ sim
+********************[#green] Início
+*******************_ não
+********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*******_ materiais diversos
+********[#green] Quantos materiais você quer usar?
+*********[#green] 999
+**********[#green] Quais materiais que você quer usar?
+***********[#green] Material #n
+************[#green] Como você quer distribuir os materiais?
+*************_ forma aleatória
+**************[#green] Qual é o tipo do material?
+***************_ liso
+****************[#green] Escolha a cor
+*****************[#green] Quer ver seu fio?
+******************_ sim
+*******************[#green] Seu fio está pronto!
+********************[#lightpink] Download
+********************[#lightpink] Copiar link
+********************[#green] Criar outro fio
+*********************[#green] Início
+********************[#green] Encerrar
+*********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+******************_ não
+*******************[#green] Quer começar de novo?
+********************_ sim
+*********************[#green] Início
+********************_ não
+*********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+***************_ rajado
+****************[#green] Escolha a cor
+*****************[#green] Quer ver seu fio?
+******************_ sim
+*******************[#green] Seu fio está pronto!
+********************[#lightpink] Download
+********************[#lightpink] Copiar link
+********************[#green] Criar outro fio
+*********************[#green] Início
+********************[#green] Encerrar
+*********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+******************_ não
+*******************[#green] Quer começar de novo?
+********************_ sim
+*********************[#green] Início
+********************_ não
+*********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*************_ forma ordenada
+**************[#green] Escolha a ordenação
+***************[#green] 7
+****************[#green] Qual é o tipo do material?
+
+*****************_ liso
+******************[#green] Escolha a cor
+*******************[#green] Quer ver seu fio?
+********************_ sim
+*********************[#green] Seu fio está pronto!
+**********************[#lightpink] Download
+**********************[#lightpink] Copiar link
+**********************[#green] Criar outro fio
+***********************[#green] Início
+**********************[#green] Encerrar
+***********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+********************_ não
+*********************[#green] Quer começar de novo?
+**********************_ sim
+***********************[#green] Início
+**********************_ não
+***********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+*****************_ rajado
+******************[#green] Escolha a cor
+*******************[#green] Quer ver seu fio?
+********************_ sim
+*********************[#green] Seu fio está pronto!
+**********************[#lightpink] Download
+**********************[#lightpink] Copiar link
+**********************[#green] Criar outro fio
+***********************[#green] Início
+**********************[#green] Encerrar
+***********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+********************_ não
+*********************[#green] Quer começar de novo?
+**********************_ sim
+***********************[#green] Início
+**********************_ não
+***********************[#green] Se precisar, chama a Vó!\n\nMotumbá! Mukuiyu! Kolofé!
+@endmindmap

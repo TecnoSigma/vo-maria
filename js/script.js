@@ -1,8 +1,8 @@
-$(document).ready(function() {
-        const fadeDefault = 500;
+const fadeDefault = 500;
 
+$(document).ready(function() {
         let materialUnique = false;
-        let materialType = '';
+        let materialType = [];
         let materialQuantity = 0;
         let materialDistribution = '';
         let materialSequence = '';
@@ -101,11 +101,12 @@ $(document).ready(function() {
 
         $('#confirmMaterialBtn').click(function() {
                 if(materialUnique == true) {
-                        materialType = $('#materialSelect').val();
+                        materialType.push($('#materialSelect').val());
 
-                        if(materialType == 'corals' || materialType == 'insets') {
+                        if(materialType.includes('corals') || materialType.includes('insets')) {
                                 $('#materialColor').fadeIn(fadeDefault);
                         } else {
+                                $('#materialTypeQuestion').text('Qual é o tipo de material?');
                                 $('#materialCharacteristic').fadeIn(fadeDefault);
                         }
                 } else {
@@ -121,14 +122,14 @@ $(document).ready(function() {
         $('#randomOptionBtn').click(function() {
                 materialDistribution = 'random';
 
-                if(materialType != 'corals' || materialType != 'insets') {
+                if(!materialType.includes('corals') || !materialType.includes('insets')) {
                         materialTypeLabel = document.getElementById('materialSelect');
                         materialTypeText = materialTypeLabel
                                 .options[materialTypeLabel.selectedIndex]
                                 .innerHTML;
 
                         $('#materialTypeQuestion')
-                                .text('Qual são os tipos de ' + materialTypeText.toLowerCase() + '?')
+                                .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
                 }
 
                 $('#materialCharacteristic').fadeIn(fadeDefault);
@@ -142,14 +143,14 @@ $(document).ready(function() {
         $('#orderedOptionBtn').click(function() {
                 materialDistribution = 'ordered';
 
-                if(materialType != 'corals' || materialType != 'insets') {
+                if(!materialType.includes('corals') || !materialType.includes('insets')) {
                         materialTypeLabel = document.getElementById('materialSelect');
                         materialTypeText = materialTypeLabel
                                 .options[materialTypeLabel.selectedIndex]
                                 .innerHTML;
 
                         $('#materialTypeQuestion')
-                                .text('Qual são os tipos de ' + materialTypeText.toLowerCase() + '?')
+                                .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
                 }
 
                 $('#ordenation').fadeIn(fadeDefault);
@@ -158,6 +159,75 @@ $(document).ready(function() {
 
                 disableElement($('#orderedOptionBtn'));
                 disableElement($(this));
+        });
+
+        $('#confirmSequenceBtn').click(function() {
+                materialSequence = $('#sequenceSelect').val();
+
+                $('#materialCharacteristic').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($('#sequenceSelect'));
+                disableElement($(this));
+        });
+
+        $('#confirmMaterialTypeBtn').click(function() {
+                $('#materialColor').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($('#characteristicMaterialSelect'));
+                disableElement($(this));
+        });
+
+        $('#confirmMaterialColorBtn').click(function() {
+                $('#seeNecklace').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($(this));
+        });
+
+        $('#noSeeNecklanceBtn').click(function() {
+                $('#startAgain').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($('#yesSeeNecklanceBtn'));
+                disableElement($(this));
+        });
+
+        $('#yesSeeNecklanceBtn').click(function() {
+                $('#necklaceImage').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($('#noSeeNecklanceBtn'));
+                disableElement($(this));
+        });
+
+        $('#finishedBtn').click(function() {
+                $('#callGrandmamma').fadeIn(fadeDefault);
+
+                moveToBottom();
+        });
+
+        $('#noStartAgainBtn').click(function() {
+                $('#callGrandmamma').fadeIn(fadeDefault);
+
+                moveToBottom();
+
+                disableElement($('#yesStartAgainBtn'));
+                disableElement($(this));
+        });
+
+        $('#createOtherNecklanceBtn').click(function() {
+                restart();
+        });
+
+        $('#yesStartAgainBtn').click(function() {
+                restart();
         });
 });
 
@@ -172,3 +242,29 @@ function sleep() {
 function disableElement(element) {
         element.attr('disabled', 'disabled');
 }
+
+function restart() {
+        $('#sayYourName').fadeOut(fadeDefault);
+        $('#createNecklace').fadeOut(fadeDefault);
+        $('#materialsDiversity').fadeOut(fadeDefault);
+        $('#informMaterialQuantity').fadeOut(fadeDefault);
+        $('#informMaterials').fadeOut(fadeDefault);
+        $('#materialsDistribution').fadeOut(fadeDefault);
+        $('#ordenation').fadeOut(fadeDefault);
+        $('#materialCharacteristic').fadeOut(fadeDefault);
+        $('#materialColor').fadeOut(fadeDefault);
+        $('#seeNecklace').fadeOut(fadeDefault);
+        $('#necklaceImage').fadeOut(fadeDefault);
+        $('#startAgain').fadeOut(fadeDefault);
+        $('#callGrandmamma').fadeOut(fadeDefault);
+
+        sleep();
+
+        $('button').each(function() { $(this).prop('disabled', false); });
+        $('select').each(function() { $(this).prop('disabled', false); });
+
+        $('#sayYourName').fadeIn(fadeDefault);
+}
+
+// Quando escolher vários elementos, e na hora que escolher os tipos e selecionar somente um, deve-se agir como se estivesse escolhido somente um elemento, no início;//
+                                                                                           // Criar lista de tipos de materiais e iterar sobre elea para o preenchimento correto do pergunta "Quais são os tipos de ..."

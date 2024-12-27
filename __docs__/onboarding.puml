@@ -6,28 +6,33 @@ split
         -[hidden]->
 split again
         start
-        #palegreen:"Como você se chama?">
+        #palegreen:"Motumbá! Mukuiyu! Kolofé!"\n\n"Como você se chama?">
         #lightblue:"João"<
-        #palegreen:"Que avatar te representa?">
-        #lightblue:"Avatar 1"<
         #palegreen:"Quer criar seu fio?">
         if () then (sim)
                 #lightgreen:"Você utilizará um único material ou diversos?">
-                split
-                         :Vários materiais;
-                         #palegreen:"Quantos materiais você quer usar?">
-                         #lightblue:"999"<
+                note right
+                        Material único
+                        ou
+                        Vários materiais
+                end note
 
-                 split again
-                         :Material único;
-                 end split
+                #palegreen:"Quantos materiais você quer usar?">
+                         #lightblue:"999"<
                  #palegreen:"Quais materiais que você quer usar?">
-                 #lightblue:"Material #1"<
-                 #lightgreen:"Como você quer distribuir os materiais?">
-                 if () then (forma ordenada)
-                         #palegreen:"Escolha a ordenação">
-                         #lightblue:"7"<
-                 else (forma aleatória)
+                 if() then (material único)
+                         #lightblue:"Material #1"<
+                 else (materiais diversos)
+                         #lightblue:"Material #n"<
+                         note right
+                                 Escolha múltiplos materiais
+                         end note
+                         #lightgreen:"Como você quer distribuir os materiais?">
+                         if () then (forma ordenada)
+                                 #palegreen:"Escolha a ordenação">
+                                 #lightblue:"7"<
+                         else (forma aleatória)
+                         endif
                  endif
                  repeat
                  #palegreen:"Qual é o tipo do material?">
