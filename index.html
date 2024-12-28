@@ -194,7 +194,6 @@
               <select id="characteristicMaterialSelect">
                 <option value="liso">Liso</option>
                 <option value="rajado">Rajado</option>
-                <option value="transparente">Transparente</option>
               </select>
             </div>
             <div class="buttons">
@@ -218,10 +217,14 @@
           <div class="dialog">
             <p>Qual é a cor do material?</p>
             <div class="colors">
-              <!-- Open color picker -->
-              <div class="buttons">
-                <button id="confirmMaterialColorBtn">Confirmar</button>
-              </div>
+              <label for="favcolor" id="firstColorLabel">Primeira cor:</label>
+              <input type="color" id="firstColorInput" value="#000000">
+              <br><br>
+              <label for="favcolor" id="secondColorLabel">Segunda cor:</label>
+              <input type="color" id="secondColorInput" value="#000000">
+            </div>
+            <div class="buttons">
+              <button id="confirmMaterialColorBtn">Confirmar</button>
             </div>
           </div>
         </section>

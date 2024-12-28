@@ -6,6 +6,8 @@ $(document).ready(function() {
         let materialQuantity = 0;
         let materialDistribution = '';
         let materialSequence = '';
+        let materialFirstColor = '';
+        let materialSecondColor = '';
 
         $('#userName').focus();
 
@@ -104,6 +106,8 @@ $(document).ready(function() {
                         materialType.push($('#materialSelect').val());
 
                         if(materialType.includes('corals') || materialType.includes('insets')) {
+                                hideSecondColor();
+
                                 $('#materialColor').fadeIn(fadeDefault);
                         } else {
                                 $('#materialTypeQuestion').text('Qual é o tipo de material?');
@@ -196,6 +200,10 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialTypeBtn').click(function() {
+                if($('#characteristicMaterialSelect').val() == 'liso') {
+                        hideSecondColor();
+                }
+
                 $('#materialColor').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -205,6 +213,9 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialColorBtn').click(function() {
+                materialFirstColor = $('#firstColor').val();
+                materialSecondColor = $('#secondColor').val();
+
                 $('#seeNecklace').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -288,6 +299,11 @@ function restart() {
 
         addTransparentOption();
 
+        $('#firstColorInput').val('#000000');
+        $('#secondColorInput').val('#000000');
+
+        showSecondColor();
+
         $('#sayYourName').fadeIn(fadeDefault);
 }
 
@@ -324,4 +340,14 @@ function addSequenceOption(materialQuantity) {
 
                 select.appendChild(newOption);
         }
+}
+
+function hideSecondColor() {
+        $('#secondColorLabel').hide();
+        $('#secondColorInput').hide();
+}
+
+function showSecondColor() {
+        $('#secondColorLabel').show();
+        $('#secondColorInput').show();
 }

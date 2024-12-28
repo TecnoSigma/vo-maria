@@ -12,6 +12,8 @@
         --dialog-font-color-button-hover: #CDA2BE;
         --dialog-button-hover: #ffffff;
 
+        --dialog-label: #006600;
+
         --dialog-select: #CDA2BE;
         --dialog-font-color-select: #ffffff;
 
@@ -73,6 +75,11 @@ select {
                         var(--dialog-select-selected) 100%
                         );
     }
+
+label {
+        color: var(--dialog-label);
+        font-size: 1.1rem;
+}
 
 .hide-card {
         display: none;
@@ -181,28 +188,33 @@ select {
         margin-bottom: 30px;
 }
 
-.dialogs .avatar-type .dialog .avatars img {
-        width: 80px;
-        margin: 0 auto;
-        cursor: pointer;
-        transform: scale(1);
-        transition: transform 0.3s;
-        box-shadow: var(--shadow);
-}
-  .dialogs .avatar-type .dialog .avatars img:hover {
-          transform: scale(1.2);
-          transition: transform 0.3s;
-  }
-
 .dialogs .inform-material-quantity .quantity,
 .dialogs .inform-materials .materials,
 .dialogs .ordenation .sequence,
 .dialogs .material-characteristic .characteristics,
-.dialogs .necklace-image .necklace {
+.dialogs .necklace-image .necklace,
+.dialogs .material-color .colors {
         display: block;
         margin-bottom: 30px;
 }
 
 .dialogs .inform-materials .dialog .materials select {
         overflow-y: auto;
+}
+
+.dialogs .material-color .dialog .colors input {
+        background-color: transparent;
+        border: none;
+        transform: scale(1);
+        transition: transform 0.3s;
+}
+  .dialogs .material-color .dialog .colors input:hover {
+          cursor: pointer;
+          transform: scale(1.2);
+          transition: transform 0.3s;
+  }
+
+.dialogs .material-color .dialog .colors label {
+        display: inline-block;
+        margin-right: 10px;
 }
