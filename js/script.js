@@ -107,10 +107,23 @@ $(document).ready(function() {
                                 $('#materialColor').fadeIn(fadeDefault);
                         } else {
                                 $('#materialTypeQuestion').text('Qual é o tipo de material?');
+                                if(materialType.includes('corals') || materialType.includes('insets')) {
+                                        removeTransparentOption();
+                                }
+
                                 $('#materialCharacteristic').fadeIn(fadeDefault);
                         }
                 } else {
-                        $('#materialsDistribution').fadeIn(fadeDefault);
+                        materialType.push($('#materialSelect').val());
+
+                        $('#materialTypeQuestion').text('Qual é o tipo de material?');
+
+                        if(materialType.length == 1) {
+                                $('#materialCharacteristic').fadeIn(fadeDefault);
+
+                        } else {
+                                $('#materialsDistribution').fadeIn(fadeDefault);
+                        }
                 }
 
                 moveToBottom();
@@ -130,6 +143,10 @@ $(document).ready(function() {
 
                         $('#materialTypeQuestion')
                                 .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
+                }
+
+                if(materialType.includes('corals') || materialType.includes('insets')) {
+                        removeTransparentOption();
                 }
 
                 $('#materialCharacteristic').fadeIn(fadeDefault);
@@ -153,6 +170,8 @@ $(document).ready(function() {
                                 .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
                 }
 
+                addSequenceOption(materialQuantity);
+
                 $('#ordenation').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -163,6 +182,10 @@ $(document).ready(function() {
 
         $('#confirmSequenceBtn').click(function() {
                 materialSequence = $('#sequenceSelect').val();
+
+                if(materialType.includes('corals') || materialType.includes('insets')) {
+                        removeTransparentOption();
+                }
 
                 $('#materialCharacteristic').fadeIn(fadeDefault);
 
@@ -263,8 +286,42 @@ function restart() {
         $('button').each(function() { $(this).prop('disabled', false); });
         $('select').each(function() { $(this).prop('disabled', false); });
 
+        addTransparentOption();
+
         $('#sayYourName').fadeIn(fadeDefault);
 }
 
-// Quando escolher vários elementos, e na hora que escolher os tipos e selecionar somente um, deve-se agir como se estivesse escolhido somente um elemento, no início;//
-                                                                                           // Criar lista de tipos de materiais e iterar sobre elea para o preenchimento correto do pergunta "Quais são os tipos de ..."
+function removeTransparentOption() {
+        const select = document.getElementById("characteristicMaterialSelect");
+        const valueToRemove = "transparente";
+
+        for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === valueToRemove) {
+                        select.remove(i);
+                        break;
+                }
+         }
+}
+
+function addTransparentOption() {
+        const select = document.getElementById("characteristicMaterialSelect");
+        const newOption = document.createElement("option");
+        newOption.value = "transparente";
+        newOption.text = "Transparente";
+
+        select.appendChild(newOption);
+}
+
+function addSequenceOption(materialQuantity) {
+        quantity = parseInt(materialQuantity) / 2;
+
+        const select = document.getElementById("sequenceSelect");
+
+        for (let i = quantity; i >= 1; i--) {
+                const newOption = document.createElement("option");
+                newOption.value = i;
+                newOption.text = i;
+
+                select.appendChild(newOption);
+        }
+}
