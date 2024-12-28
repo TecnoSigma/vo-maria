@@ -3,8 +3,6 @@
 :root {
         --font-family: 'Ubuntu', sans-serif;
 
-        --dialog-grandmamma-background-color: #D5E8D4;
-
         --dialog-font-color: #006600;
 
         --dialog-button: #CDA2BE;
@@ -118,7 +116,7 @@ label {
 }
 
 .avatar .avatar-image {
-        background-color: #ffffff;
+        background: linear-gradient(#6A6A6A, #FFFFFF);
         width: 100px;
         height: 100px;
         border-radius: 50%;
@@ -163,7 +161,7 @@ label {
         border-radius: 10px;
         box-shadow: var(--shadow);
         margin: 30px 0px;
-        background-color: var(--dialog-grandmamma-background-color);
+        background: linear-gradient(#5aa157, #D5E8D4);
         box-shadow: 5px 5px 20px rgba(0, 255, 0, 0.7);
 }
 
