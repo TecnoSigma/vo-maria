@@ -164,6 +164,7 @@ label {
         box-shadow: var(--shadow);
         margin: 30px 0px;
         background-color: var(--dialog-grandmamma-background-color);
+        box-shadow: 5px 5px 20px rgba(0, 255, 0, 0.7);
 }
 
 .dialogs .say-your-name .dialog input {
