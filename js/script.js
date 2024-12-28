@@ -363,83 +363,31 @@ function showSecondColor() {
 }
 
 function AddMaterialImages(folder) {
-        let div = document.getElementById('materialImages');
+        svgStringsList(folder).forEach(function(svgString) {
+                const svgBase64 = btoa(unescape(encodeURIComponent(svgString))); // Base64 encode
+                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                const imgElement = $('<img>').attr('src', svgDataUrl).attr('alt', 'Teste');
 
-        imagesList(folder).forEach(function(image) {
-                let img = document.createElement('img');
+                $('#materialImages').append(imgElement);
 
-                img.src = image;
-                //img.alt = materialType;
-
-                div.appendChild(img);
+                imgElement.on('load', () => { URL.revokeObjectURL(svgUrl); });
         });
 }
 
-function imagesList (folder) {
-        if (folder == 'insets') {
-                return ["/images/templates/insets/bola-aramada.svg",
-                        "/images/templates/insets/luxo.svg",
-                        "/images/templates/insets/oval-aramado.svg",
-                        "/images/templates/insets/strass.svg"]
+function svgStringsList (folder) {
+        if(folder == 'insets') {
+                return [bolaAramada(), luxo(), ovalAramado(), strass()];
         }
 
-        if (folder == 'beads') {
-                return ["/images/templates/beads/canjicao-cristal.svg",
-                        "/images/templates/beads/canjicao.svg",
-                        "/images/templates/beads/micanguinha.svg",
-                        "/images/templates/beads/rajadao.svg",
-                        "/images/templates/beads/rajado.svg"]
+        if(folder == 'corals') {
+                return [coral()];
         }
 
-        if (folder == 'muranos') {
-        return ["/images/templates/muranos/azeitona-cristal-rajada.svg",
-                "/images/templates/muranos/azeitona-cristal.svg",
-                "/images/templates/muranos/azeitona-rajada.svg",
-                "/images/templates/muranos/azeitona.svg",
-                "/images/templates/muranos/bola-cristal-rajada.svg",
-                "/images/templates/muranos/bola-cristal.svg",
-                "/images/templates/muranos/bola-rajada.svg",
-                "/images/templates/muranos/bola.svg",
-                "/images/templates/muranos/cartola.svg",
-                "/images/templates/muranos/caveira-cristal.svg",
-                "/images/templates/muranos/caveira.svg",
-                "/images/templates/muranos/coracao-cristal-rajado.svg",
-                "/images/templates/muranos/coracao-cristal.svg",
-                "/images/templates/muranos/coracao-rajado.svg",
-                "/images/templates/muranos/coracao.svg",
-                "/images/templates/muranos/dado-cristal.svg",
-                "/images/templates/muranos/dado.svg",
-                "/images/templates/muranos/firma-cortada-rajada.svg",
-                "/images/templates/muranos/firma-cortada.svg",
-                "/images/templates/muranos/firma-cristal-cortada-rajada.svg",
-                "/images/templates/muranos/firma-cristal-cortada.svg",
-                "/images/templates/muranos/firma-cristal-rajada.svg",
-                "/images/templates/muranos/firma-cristal.svg",
-                "/images/templates/muranos/firma-cristal-torcida-rajada.svg",
-                "/images/templates/muranos/firma-cristal-torcida.svg",
-                "/images/templates/muranos/firma-rajada.svg",
-                "/images/templates/muranos/firma.svg",
-                "/images/templates/muranos/firma-torcida-rajada.svg",
-                "/images/templates/muranos/firma-torcida.svg",
-                "/images/templates/muranos/meteoro-cristal-rajado.svg",
-                "/images/templates/muranos/meteoro-cristal.svg",
-                "/images/templates/muranos/meteoro-rajado.svg",
-                "/images/templates/muranos/meteoro.svg",
-                "/images/templates/muranos/peixe-cristal-rajado.svg",
-                "/images/templates/muranos/peixe-cristal.svg",
-                "/images/templates/muranos/peixe-rajado.svg",
-                "/images/templates/muranos/peixe.svg",
-                "/images/templates/muranos/pitanga-cristal-rajada.svg",
-                "/images/templates/muranos/pitanga-cristal.svg",
-                "/images/templates/muranos/pitanga-rajada.svg",
-                "/images/templates/muranos/pitanga.svg",
-                "/images/templates/muranos/rosa-cristal-rajada.svg",
-                "/images/templates/muranos/rosa-cristal.svg",
-                "/images/templates/muranos/rosa-rajada.svg",
-                "/images/templates/muranos/rosa.svg",
-                "/images/templates/muranos/sextavado-cristal-rajado.svg",
-                "/images/templates/muranos/sextavado-cristal.svg",
-                "/images/templates/muranos/sextavado-rajado.svg",
-                "/images/templates/muranos/sextavado.svg"]
+        if(folder == 'beads') {
+                return [canjicaoCristal(), canjicao(), micanguinha(), rajadao(), rajado()];
+        }
+
+        if(folder == 'muranos') {
+                return [azeitonaCristalRajada(), azeitonaCristal(), azeitonaRajada(), azeitona(), bolaCristalRajada(), bolaCristal(), bolaRajada(), bola(), cartola(), caveiraCristal(), caveira(), coracaoCristalRajado(), coracaoCristal(), coracaoRajado(), coracao(), dadoCristal(), dado(), firmaCortadaRajada(), firmaCortada(), firmaCristalCortadaRajada(), firmaCristalCortada(), firmaCristalRajada(), firmaCristal(), firmaCristalTorcidaRajada(), firmaCristalTorcida(), firmaRajada(), firma(), firmaTorcidaRajada(), firmaTorcida(), meteoroCristalRajado(), meteoroCristal(), meteoroRajado(), meteoro(), peixeCristalRajado(), peixeCristal(), peixeRajado(), peixe(), pitangaCristalRajada(), pitangaCristal(), pitangaRajada(), pitanga(), rosaCristalRajada(), rosaCristal(), rosaRajada(), rosa(), sextavadoCristalRajado(), sextavadoCristal(), sextavadoRajado(), sextavado()];
         }
 }
