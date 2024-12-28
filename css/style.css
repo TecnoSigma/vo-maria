@@ -202,6 +202,19 @@ label {
         overflow-y: auto;
 }
 
+.dialogs .inform-materials .dialog .material-images img {
+        margin: 0px 20px 20px 0px;
+        width: 80px;
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform 0.3s;
+        box-shadow: var(--shadow);
+        padding: 5px;
+}
+  .dialogs .inform-materials .dialog .material-images img:hover {
+          transform: scale(1.2);
+          transition: transform 0.3s;
+
 .dialogs .material-color .dialog .colors input {
         background-color: transparent;
         border: none;

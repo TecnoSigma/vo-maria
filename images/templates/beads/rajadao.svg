@@ -9,8 +9,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="200mm"
-   height="80mm"
-   viewBox="0 0 200 80"
+   height="200mm"
+   viewBox="0 0 200 200"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
@@ -165,34 +165,38 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g1717">
+       id="g298"
+       transform="translate(0,60)">
+      <g
+         id="g1717">
+        <rect
+           style="fill:url(#radialGradient1506);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+           id="rect861"
+           width="200"
+           height="80"
+           x="0"
+           y="0"
+           ry="40"
+           rx="50.081779" />
+        <rect
+           style="fill:url(#radialGradient1506-1);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+           id="rect861-9"
+           width="200"
+           height="80"
+           x="-3.8146973e-06"
+           y="-1.4210855e-14"
+           ry="40"
+           rx="50.081779" />
+      </g>
       <rect
-         style="fill:url(#radialGradient1506);stroke-width:0;stop-color:#000000;fill-opacity:1.0;stroke-miterlimit:4;stroke-dasharray:none;stroke:none"
-         id="rect861"
-         width="200"
+         style="fill:url(#linearGradient1751);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+         id="rect1739"
+         width="64.25428"
          height="80"
-         x="0"
-         y="0"
-         ry="40"
-         rx="50.081779" />
-      <rect
-         style="fill:url(#radialGradient1506-1);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-         id="rect861-9"
-         width="200"
-         height="80"
-         x="-3.8146973e-06"
-         y="-1.4210855e-14"
-         ry="40"
-         rx="50.081779" />
+         x="67.872864"
+         y="1.8596236e-15"
+         rx="11.497864"
+         ry="39.999973" />
     </g>
-    <rect
-       style="fill:url(#linearGradient1751);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-       id="rect1739"
-       width="64.25428"
-       height="80"
-       x="67.872864"
-       y="1.8596236e-15"
-       rx="11.497864"
-       ry="39.999973" />
   </g>
 </svg>

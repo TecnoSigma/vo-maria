@@ -263,6 +263,16 @@ $(document).ready(function() {
         $('#yesStartAgainBtn').click(function() {
                 restart();
         });
+
+        $('#materialSelect').change(function() {
+                var selectedImage = $(this).val();
+
+                $('#materialImages').empty();
+
+                if (selectedImage) {
+                        AddMaterialImages(selectedImage);
+                }
+        });
 });
 
 function moveToBottom() {
@@ -350,4 +360,86 @@ function hideSecondColor() {
 function showSecondColor() {
         $('#secondColorLabel').show();
         $('#secondColorInput').show();
+}
+
+function AddMaterialImages(folder) {
+        let div = document.getElementById('materialImages');
+
+        imagesList(folder).forEach(function(image) {
+                let img = document.createElement('img');
+
+                img.src = image;
+                //img.alt = materialType;
+
+                div.appendChild(img);
+        });
+}
+
+function imagesList (folder) {
+        if (folder == 'insets') {
+                return ["/images/templates/insets/bola-aramada.svg",
+                        "/images/templates/insets/luxo.svg",
+                        "/images/templates/insets/oval-aramado.svg",
+                        "/images/templates/insets/strass.svg"]
+        }
+
+        if (folder == 'beads') {
+                return ["/images/templates/beads/canjicao-cristal.svg",
+                        "/images/templates/beads/canjicao.svg",
+                        "/images/templates/beads/micanguinha.svg",
+                        "/images/templates/beads/rajadao.svg",
+                        "/images/templates/beads/rajado.svg"]
+        }
+
+        if (folder == 'muranos') {
+        return ["/images/templates/muranos/azeitona-cristal-rajada.svg",
+                "/images/templates/muranos/azeitona-cristal.svg",
+                "/images/templates/muranos/azeitona-rajada.svg",
+                "/images/templates/muranos/azeitona.svg",
+                "/images/templates/muranos/bola-cristal-rajada.svg",
+                "/images/templates/muranos/bola-cristal.svg",
+                "/images/templates/muranos/bola-rajada.svg",
+                "/images/templates/muranos/bola.svg",
+                "/images/templates/muranos/cartola.svg",
+                "/images/templates/muranos/caveira-cristal.svg",
+                "/images/templates/muranos/caveira.svg",
+                "/images/templates/muranos/coracao-cristal-rajado.svg",
+                "/images/templates/muranos/coracao-cristal.svg",
+                "/images/templates/muranos/coracao-rajado.svg",
+                "/images/templates/muranos/coracao.svg",
+                "/images/templates/muranos/dado-cristal.svg",
+                "/images/templates/muranos/dado.svg",
+                "/images/templates/muranos/firma-cortada-rajada.svg",
+                "/images/templates/muranos/firma-cortada.svg",
+                "/images/templates/muranos/firma-cristal-cortada-rajada.svg",
+                "/images/templates/muranos/firma-cristal-cortada.svg",
+                "/images/templates/muranos/firma-cristal-rajada.svg",
+                "/images/templates/muranos/firma-cristal.svg",
+                "/images/templates/muranos/firma-cristal-torcida-rajada.svg",
+                "/images/templates/muranos/firma-cristal-torcida.svg",
+                "/images/templates/muranos/firma-rajada.svg",
+                "/images/templates/muranos/firma.svg",
+                "/images/templates/muranos/firma-torcida-rajada.svg",
+                "/images/templates/muranos/firma-torcida.svg",
+                "/images/templates/muranos/meteoro-cristal-rajado.svg",
+                "/images/templates/muranos/meteoro-cristal.svg",
+                "/images/templates/muranos/meteoro-rajado.svg",
+                "/images/templates/muranos/meteoro.svg",
+                "/images/templates/muranos/peixe-cristal-rajado.svg",
+                "/images/templates/muranos/peixe-cristal.svg",
+                "/images/templates/muranos/peixe-rajado.svg",
+                "/images/templates/muranos/peixe.svg",
+                "/images/templates/muranos/pitanga-cristal-rajada.svg",
+                "/images/templates/muranos/pitanga-cristal.svg",
+                "/images/templates/muranos/pitanga-rajada.svg",
+                "/images/templates/muranos/pitanga.svg",
+                "/images/templates/muranos/rosa-cristal-rajada.svg",
+                "/images/templates/muranos/rosa-cristal.svg",
+                "/images/templates/muranos/rosa-rajada.svg",
+                "/images/templates/muranos/rosa.svg",
+                "/images/templates/muranos/sextavado-cristal-rajado.svg",
+                "/images/templates/muranos/sextavado-cristal.svg",
+                "/images/templates/muranos/sextavado-rajado.svg",
+                "/images/templates/muranos/sextavado.svg"]
+        }
 }

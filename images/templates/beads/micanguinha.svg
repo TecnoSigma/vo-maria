@@ -8,13 +8,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="100mm"
-   height="40mm"
-   viewBox="0 0 100 40"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="miçanguinha.svg">
+   sodipodi:docname="micanguinha.svg">
   <defs
      id="defs2">
     <linearGradient
@@ -116,7 +116,8 @@
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="27"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -137,24 +138,28 @@
        id="g3032"
        transform="matrix(0.49999999,0,0,0.49999999,-1.9073487e-6,0)"
        style="stroke-width:2">
-      <rect
-         style="fill:url(#radialGradient1506);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-         id="rect861"
-         width="200"
-         height="80"
-         x="0"
-         y="0"
-         ry="80"
-         rx="52.784531" />
-      <rect
-         style="fill:url(#radialGradient1506-1);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-         id="rect861-9"
-         width="200"
-         height="80"
-         x="-3.8146973e-06"
-         y="0"
-         ry="80"
-         rx="51.468018" />
+      <g
+         id="g292"
+         transform="translate(100.00001,160)">
+        <rect
+           style="fill:url(#radialGradient1506);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+           id="rect861"
+           width="200"
+           height="80"
+           x="0"
+           y="0"
+           ry="80"
+           rx="52.784531" />
+        <rect
+           style="fill:url(#radialGradient1506-1);fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+           id="rect861-9"
+           width="200"
+           height="80"
+           x="-3.8146973e-06"
+           y="0"
+           ry="80"
+           rx="51.468018" />
+      </g>
     </g>
   </g>
 </svg>
