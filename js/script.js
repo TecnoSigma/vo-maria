@@ -293,7 +293,19 @@ $(document).ready(function() {
         $(document).on('click', '#materialImages img', function() {
                 const imageId = $(this).attr('id');
 
-                materialItems.push(imageId);
+                if($(this).attr('chosen')) {
+                        $(this).attr('chosen', false);
+
+                        var index = $.inArray(imageId, materialItems);
+                        if (index !== -1) { materialItems.splice(index, 1); }
+
+                        $(this).css('background-color', 'transparent');
+                } else {
+                        if (!materialItems.includes(imageId)) { materialItems.push(imageId); }
+                        $(this).css('background-color', '#006600');
+
+                        $(this).attr('chosen', 'true');
+                }
         });
 });
 

@@ -213,6 +213,7 @@ label {
   .dialogs .inform-materials .dialog .material-images img:hover {
           transform: scale(1.2);
           transition: transform 0.3s;
+  }
 
 .dialogs .material-color .dialog .colors input {
         background-color: transparent;
