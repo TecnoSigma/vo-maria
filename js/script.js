@@ -2,12 +2,14 @@ const fadeDefault = 500;
 
 $(document).ready(function() {
         let materialUnique = false;
-        let materialType = [];
+        let materialNames = [];
+        let materialType = '';
         let materialQuantity = 0;
         let materialDistribution = '';
         let materialSequence = '';
-        let materialFirstColor = '';
-        let materialSecondColor = '';
+        let materialPrimaryColor = '';
+        let materialSecondaryColor = '';
+        let materialItems = [];
 
         $('#userName').focus();
 
@@ -103,26 +105,28 @@ $(document).ready(function() {
 
         $('#confirmMaterialBtn').click(function() {
                 if(materialUnique == true) {
-                        materialType.push($('#materialSelect').val());
+                        materialNames.push($('#materialSelect').val());
 
-                        if(materialType.includes('corals') || materialType.includes('insets')) {
-                                hideSecondColor();
+                        if(materialNames.includes('corals') || materialNames.includes('insets')) {
+                                hideSecondaryColor();
 
                                 $('#materialColor').fadeIn(fadeDefault);
                         } else {
                                 $('#materialTypeQuestion').text('Qual é o tipo de material?');
-                                if(materialType.includes('corals') || materialType.includes('insets')) {
+                                if(materialNames.includes('corals') || materialNames.includes('insets')) {
                                         removeTransparentOption();
                                 }
 
                                 $('#materialCharacteristic').fadeIn(fadeDefault);
                         }
                 } else {
-                        materialType.push($('#materialSelect').val());
+                        $('#materialSelect').val().forEach(function(material) {
+                                materialNames.push(material);
+                        });
 
                         $('#materialTypeQuestion').text('Qual é o tipo de material?');
 
-                        if(materialType.length == 1) {
+                        if(materialNames.length == 1) {
                                 $('#materialCharacteristic').fadeIn(fadeDefault);
 
                         } else {
@@ -139,17 +143,17 @@ $(document).ready(function() {
         $('#randomOptionBtn').click(function() {
                 materialDistribution = 'random';
 
-                if(!materialType.includes('corals') || !materialType.includes('insets')) {
-                        materialTypeLabel = document.getElementById('materialSelect');
-                        materialTypeText = materialTypeLabel
-                                .options[materialTypeLabel.selectedIndex]
+                if(!materialNames.includes('corals') || !materialNames.includes('insets')) {
+                        materialNameLabel = document.getElementById('materialSelect');
+                        materialNameText = materialNameLabel
+                                .options[materialNameLabel.selectedIndex]
                                 .innerHTML;
 
                         $('#materialTypeQuestion')
-                                .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
+                                .text('Quais são os tipos de ' + materialNameText.toLowerCase() + '?')
                 }
 
-                if(materialType.includes('corals') || materialType.includes('insets')) {
+                if(materialNames.includes('corals') || materialNames.includes('insets')) {
                         removeTransparentOption();
                 }
 
@@ -164,14 +168,14 @@ $(document).ready(function() {
         $('#orderedOptionBtn').click(function() {
                 materialDistribution = 'ordered';
 
-                if(!materialType.includes('corals') || !materialType.includes('insets')) {
-                        materialTypeLabel = document.getElementById('materialSelect');
-                        materialTypeText = materialTypeLabel
-                                .options[materialTypeLabel.selectedIndex]
+                if(!materialNames.includes('corals') || !materialNames.includes('insets')) {
+                        materialNameLabel = document.getElementById('materialSelect');
+                        materialNameText = materialNameLabel
+                                .options[materialNameLabel.selectedIndex]
                                 .innerHTML;
 
                         $('#materialTypeQuestion')
-                                .text('Quais são os tipos de ' + materialTypeText.toLowerCase() + '?')
+                                .text('Quais são os tipos de ' + materialNameText.toLowerCase() + '?')
                 }
 
                 addSequenceOption(materialQuantity);
@@ -187,7 +191,7 @@ $(document).ready(function() {
         $('#confirmSequenceBtn').click(function() {
                 materialSequence = $('#sequenceSelect').val();
 
-                if(materialType.includes('corals') || materialType.includes('insets')) {
+                if(materialNames.includes('corals') || materialNames.includes('insets')) {
                         removeTransparentOption();
                 }
 
@@ -200,8 +204,10 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialTypeBtn').click(function() {
-                if($('#characteristicMaterialSelect').val() == 'liso') {
-                        hideSecondColor();
+                materialType = $('#characteristicMaterialSelect').val();
+
+                if(materialType == 'liso') {
+                        hideSecondaryColor();
                 }
 
                 $('#materialColor').fadeIn(fadeDefault);
@@ -213,8 +219,8 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialColorBtn').click(function() {
-                materialFirstColor = $('#firstColor').val();
-                materialSecondColor = $('#secondColor').val();
+                materialPrimaryColor = $('#primaryColorInput').val();
+                materialSecondaryColor = $('#secondaryColorInput').val();
 
                 $('#seeNecklace').fadeIn(fadeDefault);
 
@@ -233,6 +239,16 @@ $(document).ready(function() {
         });
 
         $('#yesSeeNecklanceBtn').click(function() {
+               drawNecklace(materialNames,
+                            materialItems,
+                            materialType,
+                            materialQuantity,
+                            materialDistribution,
+                            materialSequence,
+                            materialPrimaryColor,
+                            materialSecondaryColor
+               );
+
                 $('#necklaceImage').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -273,6 +289,12 @@ $(document).ready(function() {
                         AddMaterialImages(selectedImage);
                 }
         });
+
+        $(document).on('click', '#materialImages img', function() {
+                const imageId = $(this).attr('id');
+
+                materialItems.push(imageId);
+        });
 });
 
 function moveToBottom() {
@@ -309,10 +331,10 @@ function restart() {
 
         addTransparentOption();
 
-        $('#firstColorInput').val('#000000');
-        $('#secondColorInput').val('#000000');
+        $('#primaryColorInput').val('#000000');
+        $('#secondaryColorInput').val('#000000');
 
-        showSecondColor();
+        showSecondaryColor();
 
         $('#sayYourName').fadeIn(fadeDefault);
 }
@@ -352,46 +374,139 @@ function addSequenceOption(materialQuantity) {
         }
 }
 
-function hideSecondColor() {
-        $('#secondColorLabel').hide();
-        $('#secondColorInput').hide();
+function hideSecondaryColor() {
+        $('#secondaryColorLabel').hide();
+        $('#secondaryColorInput').hide();
 }
 
-function showSecondColor() {
-        $('#secondColorLabel').show();
-        $('#secondColorInput').show();
+function showSecondaryColor() {
+        $('#secondaryColorLabel').show();
+        $('#secondaryColorInput').show();
 }
 
-function AddMaterialImages(folder) {
-        svgStringsList(folder).forEach(function(svgString) {
-                const svgBase64 = btoa(unescape(encodeURIComponent(svgString))); // Base64 encode
-                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
-                const imgElement = $('<img>').attr('src', svgDataUrl).attr('alt', 'Teste');
+function AddMaterialImages(folders) {
+        folders.forEach(function(folder) {
+                svgStringsList(folder).forEach(function(svgString) {
+                        const svgBase64 = btoa(unescape(encodeURIComponent(svgString.svg)));
+                        const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                        const imgElement = $('<img>')
+                                .attr('id', svgString.id)
+                                .attr('title', svgString.title)
+                                .attr('src', svgDataUrl)
+                                .attr('alt', svgString.id);
 
-                $('#imagesTest').append(imgElement);
+                        $('#materialImages').append(imgElement);
 
-                imgElement.on('load', () => { URL.revokeObjectURL(svgDataUrl); });
+                        imgElement.on('load', () => { URL.revokeObjectURL(svgDataUrl); });
+                });
         });
 }
 
 function svgStringsList (folder) {
         if(folder == 'insets') {
-                return [bolaAramada(), luxo(), ovalAramado(), strass()];
+                return [
+                        { id: 'bolaArmada', title: 'bola aramada', svg: bolaAramada() },
+                        { id: 'luxo', title: 'luxo' , svg: luxo() },
+                        { id: 'ovalAramado', title: 'oval aramado', svg: ovalAramado() },
+                        { id: 'strass', title: 'strass', svg: strass() }
+                ];
         }
 
         if(folder == 'corals') {
-                return [coral()];
+                return [
+                        { id: 'coral', title: 'coral', svg: coral() }
+                ]
         }
 
         if(folder == 'crystals') {
-                return [cristal1(), cristal2(), cristal3(), leitoso1(), leitoso2(), leitoso3(), metalico1(), metalico2(), metalico3(), prateado1(), prateado2(), prateado3()];
+                return [
+                        { id: 'cristal1', title: 'cristal transparente pequeno', svg: cristal1() },
+                        { id: 'cristal2', title: 'cristal transparente médio', svg: cristal2() },
+                        { id: 'cristal3', title: 'cristal transparente grande', svg: cristal3() },
+                        { id: 'leitoso1', title: 'cristal leitoso pequeno', svg: leitoso1() },
+                        { id: 'leitoso2', title: 'cristal leitoso médio', svg: leitoso2() },
+                        { id: 'leitoso3', title: 'cristal leitoso grande', svg: leitoso3() },
+                        { id: 'metalico1', title: 'cristal dourado pequeno', svg: metalico1() },
+                        { id: 'metalico2', title: 'cristal dourado médio', svg: metalico2() },
+                        { id: 'metalico3', title: 'cristal dourado grande', svg: metalico3() },
+                        { id: 'prateado1', title: 'cristal prateado pequeno', svg: prateado1() },
+                        { id: 'prateado2', title: 'cristal prateado médio', svg: prateado2() },
+                        { id: 'prateado3', title: 'cristal prateado grance ', svg: prateado3() }
+                ];
         }
 
         if(folder == 'beads') {
-                return [canjicaoCristal(), canjicao(), micanguinha(), rajadao(), rajado()];
+                return [
+                        { id: 'canjicaoCristal', title: 'canjicão cristal', svg: canjicaoCristal() },
+                        { id: 'canjicao', title: 'canjicão', svg: canjicao() },
+                        { id: 'micanguinha', title: 'miçanguinha', svg: micanguinha() },
+                        { id: 'rajadao', title: 'rajadão', svg: rajadao() },
+                        { id: 'rajado', title: 'rajado', svg: rajado() }
+                ];
         }
 
         if(folder == 'muranos') {
-                return [azeitonaCristalRajada(), azeitonaCristal(), azeitonaRajada(), azeitona(), bolaCristalRajada(), bolaCristal(), bolaRajada(), bola(), cartola(), caveiraCristal(), caveira(), coracaoCristalRajado(), coracaoCristal(), coracaoRajado(), coracao(), dadoCristal(), dado(), firmaCortadaRajada(), firmaCortada(), firmaCristalCortadaRajada(), firmaCristalCortada(), firmaCristalRajada(), firmaCristal(), firmaCristalTorcidaRajada(), firmaCristalTorcida(), firmaRajada(), firma(), firmaTorcidaRajada(), firmaTorcida(), meteoroCristalRajado(), meteoroCristal(), meteoroRajado(), meteoro(), peixeCristalRajado(), peixeCristal(), peixeRajado(), peixe(), pitangaCristalRajada(), pitangaCristal(), pitangaRajada(), pitanga(), rosaCristalRajada(), rosaCristal(), rosaRajada(), rosa(), sextavadoCristalRajado(), sextavadoCristal(), sextavadoRajado(), sextavado()];
+                return [
+                        { id: 'azeitonaCristalRajada', title: 'azeitona cristal rajada', svg: azeitonaCristalRajada() },
+                        { id: 'azeitonaCristal', title: 'azeitona cristal', svg: azeitonaCristal() },
+                        { id: 'azeitonaRajada', title: 'azeitona rajada', svg: azeitonaRajada() },
+                        { id: 'azeitona', title: 'azeitona', svg: azeitona() },
+                        { id: 'bolaCristalRajada', title: 'bola cristal rajada', svg: bolaCristalRajada() },
+                        { id: 'bolaCristal', title: 'bola cristal', svg: bolaCristal() },
+                        { id: 'bolaRajada', title: 'bola rajada', svg: bolaRajada() },
+                        { id: 'bola', title: 'bola', svg: bola() },
+                        { id: 'cartola', title: 'cartola', svg: cartola() },
+                        { id: 'caveiraCristal', title: 'caveira cristal', svg: caveiraCristal() },
+                        { id: 'caveira', title: 'caveira', svg: caveira() },
+                        { id: 'coracaoCristalRajado', title: 'coração cristal rajado', svg: coracaoCristalRajado() },
+                        { id: 'coracaoCristal', title: 'coração cristal', svg: coracaoCristal() },
+                        { id: 'coracaoRajado', title: 'coração rajado', svg: coracaoRajado() },
+                        { id: 'coracao', title: 'coração', svg: coracao() },
+                        { id: 'dadoCristal', title: 'dado cristal', svg: dadoCristal() },
+                        { id: 'dado', title: 'dado', svg: dado() },
+                        { id: 'firmaCortadaRajada', title: 'firma cortada rajada', svg: firmaCortadaRajada() },
+                        { id: 'firmaCortada', title: 'firma cortada', svg: firmaCortada() },
+                        { id: 'firmaCristalCortadaRajada', title: 'firma cristal cortada rajada', svg: firmaCristalCortadaRajada() },
+                        { id: 'firmaCristalCortada', title: 'firma cristal cortada', svg: firmaCristalCortada() },
+                        { id: 'firmaCristalRajada', title: 'firma cristal rajada', svg: firmaCristalRajada() },
+                        { id: 'firmaCristal', title: 'firma cristal', svg: firmaCristal() },
+                        { id: 'firmaCristalTorcidaRajada', title: 'firma cristal torcida rajada', svg: firmaCristalTorcidaRajada() },
+                        { id: 'firmaCristalTorcida', title: 'firma cristal torcida', svg: firmaCristalTorcida() },
+                        { id: 'firmaRajada', title: 'firma rajada', svg: firmaRajada() },
+                        { id: 'firma', title: 'firma', svg: firma() },
+                        { id: 'firmaTorcidaRajada', title: 'firma torcida rajada', svg: firmaTorcidaRajada() },
+                        { id: 'firmaTorcida', title: 'firma torcida', svg: firmaTorcida() },
+                        { id: 'meteoroCristalRajado', title: 'meteoto cristal rajado', svg: meteoroCristalRajado() },
+                        { id: 'meteoroCristal', title: 'meteoro cristal', svg: meteoroCristal() },
+                        { id: 'meteoroRajado', title: 'meteoro rajado', svg: meteoroRajado() },
+                        { id: 'meteoro', title: 'meteoro', svg: meteoro() },
+                        { id: 'peixeCristalRajado', title: 'peixe cristal rajado', svg: peixeCristalRajado() },
+                        { id: 'peixeCristal', title: 'peixe cristal', svg: peixeCristal() },
+                        { id: 'peixeRajado', title: 'peixe rajado', svg: peixeRajado() },
+                        { id: 'peixe', title: 'peixe', svg: peixe() },
+                        { id: 'pitangaCristalRajada', title: 'pitanga cristal rajada', svg: pitangaCristalRajada() },
+                        { id: 'pitangaCristal', title: 'pitanga cristal', svg: pitangaCristal() },
+                        { id: 'pitangaRajada', title: 'pitanga rajada', svg: pitangaRajada() },
+                        { id: 'pitanga', title: 'pitanga', svg: pitanga() },
+                        { id: 'rosaCristalRajada', title: 'rosa cristal rajada', svg: rosaCristalRajada() },
+                        { id: 'rosaCristal', title: 'rosa cristal', svg: rosaCristal() },
+                        { id: 'rosaRajada', title: 'rosa rajada', svg: rosaRajada() },
+                        { id: 'rosa', title: 'rosa', svg: rosa() },
+                        { id: 'sextavadoCristalRajado', title: 'sextavado cristal rajado', svg: sextavadoCristalRajado() },
+                        { id: 'sextavadoCristal', title: 'sextavado cristal', svg: sextavadoCristal() },
+                        { id: 'sextavadoRajado', title: 'sextavado rajado', svg: sextavadoRajado() },
+                        { id: 'sextavado', title: 'sextavado', svg: sextavado() }
+                ];
         }
+}
+
+function drawNecklace(materialNames, materialItems, materialType, materialQuantity, materialDistribution, materialSequence, materialPrimaryColor, materialSecondaryColor) {
+        console.log("Materiais: " + materialNames);
+        console.log("Itens: " + materialItems);
+        console.log("Tipo: " + materialType);
+        console.log("Quantidade: " + materialQuantity);
+        console.log("Distribuição: " + materialDistribution);
+        console.log("Sequencia: " + materialSequence);
+        console.log("Cor Primária: " + materialPrimaryColor);
+        console.log("Cor Secundária: " + materialSecondaryColor);
 }
