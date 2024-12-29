@@ -301,6 +301,34 @@ $(document).ready(function() {
         });
 });
 
+function createMaterialColorForm(materialItems) {
+        materialItems.forEach(function(item) {
+                ItemName = searchMaterialName(item + "Id");
+
+                const newParagraph = $("<p>", {
+                        id: "materialTypeQuestion",
+                        text: "Qual é o cor do  material de " + itemName +"?"
+                });
+                $("#materialColorDiv").append(newParagraph);
+
+                const newDiv = $("<div>", { class: "coolors" });
+                $("#materialColorDiv").append(newDiv);
+
+                const newLabel1 = $("<label>", { id: "primaryColorLabel", text: "Cor Primária" });
+                newDiv.append(newLabel1);
+                const newInput1 = $("<input>", { id: "primaryColorInput", type: "color", value: "#000000" });
+                newDiv.append(newInput1);
+
+                const newLabel2 = $("<label>", { id: "secondaryColorLabel", text: "Cor Secundária",value: "#000000" });
+                newDiv.append(newLabel2);
+                const newInput2 = $("<input>", { id: "secondaryColorInput", type: "color", value: "#000000" });
+                newDiv.append(newInput2);
+        });
+
+        const newButton = $("<button>", { id: "confirmMaterialBtn", text: "Confirmar" });
+        $("#materialColorDiv").append(newButton)
+}
+
 function createMaterialTypeForm(materialItems) {
         materialItems.forEach(function(item) {
                 itemName = searchMaterialName(item + "Id");
@@ -565,7 +593,8 @@ function searchMaterialName(materialId) {
                 { id: 'metalico3Id', name: 'cristal dourado grande' },
                 { id: 'prateado1Id', name: 'cristal prateado pequeno' },
                 { id: 'prateado2Id', name: 'cristal prateado médio' },
-                { id: 'prateado3Id', name: 'cristal prateado grance ' },
+                { id: 'prateado3Id', name: 'cristal prateado grande' },
+                { id: 'canjicaoCristalId', name: 'canjicão cristal' },
                 { id: 'canjicaoId', name: 'canjicão' },
                 { id: 'micanguinhaId', name: 'miçanguinha' },
                 { id: 'rajadaoId', name: 'rajadão' },
