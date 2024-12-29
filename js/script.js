@@ -368,9 +368,9 @@ function AddMaterialImages(folder) {
                 const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
                 const imgElement = $('<img>').attr('src', svgDataUrl).attr('alt', 'Teste');
 
-                $('#materialImages').append(imgElement);
+                $('#imagesTest').append(imgElement);
 
-                imgElement.on('load', () => { URL.revokeObjectURL(svgUrl); });
+                imgElement.on('load', () => { URL.revokeObjectURL(svgDataUrl); });
         });
 }
 
@@ -381,6 +381,10 @@ function svgStringsList (folder) {
 
         if(folder == 'corals') {
                 return [coral()];
+        }
+
+        if(folder == 'crystals') {
+                return [cristal1(), cristal2(), cristal3(), leitoso1(), leitoso2(), leitoso3(), metalico1(), metalico2(), metalico3(), prateado1(), prateado2(), prateado3()];
         }
 
         if(folder == 'beads') {
