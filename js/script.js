@@ -3,7 +3,6 @@ const fadeDefault = 500;
 $(document).ready(function() {
         let materialUnique = false;
         let materialFamilies = [];
-        let materialType = '';
         let materialQuantity = 0;
         let materialDistribution = '';
         let materialSequence = '';
@@ -106,16 +105,6 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialBtn').click(function() {
-                createMaterialTypeForm(materialItems);
-
-                const newButton = $("<button>", {
-                        id: "confirmMaterialTypeBtn",
-                        text: "Confirmar"
-                });
-
-                $("#materialTypeDiv #buttons").append(newButton);
-
-
                 if(materialUnique == true) {
                         materialFamilies.push($('#materialSelect').val());
 
@@ -128,23 +117,17 @@ $(document).ready(function() {
                                         removeTransparentOption();
                                 }
 
-                                $('#materialCharacteristic').fadeIn(fadeDefault);
+                                $('#materialColor').fadeIn(fadeDefault);
                         }
                 } else {
                         $('#materialSelect').val().forEach(function(material) {
                                 materialFamilies.push(material);
                         });
 
-                        if(materialItems.length == 1) {
-                                $('#materialCharacteristic').fadeIn(fadeDefault);
-
-                        } else {
-                                $('#materialsDistribution').fadeIn(fadeDefault);
-                        }
+                        $('#materialsDistribution').fadeIn(fadeDefault);
                 }
 
                 materialData.push(materialItems);
-                console.log(materialData);
 
                 moveToBottom();
 
@@ -159,7 +142,7 @@ $(document).ready(function() {
                         removeTransparentOption();
                 }
 
-                $('#materialCharacteristic').fadeIn(fadeDefault);
+                $('#materialColor').fadeIn(fadeDefault);
 
                 moveToBottom();
 
@@ -187,7 +170,9 @@ $(document).ready(function() {
                         removeTransparentOption();
                 }
 
-                $('#materialCharacteristic').fadeIn(fadeDefault);
+                createMaterialColorForm(materialItems);
+
+                $('#materialColor').fadeIn(fadeDefault);
 
                 moveToBottom();
 
@@ -210,10 +195,7 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        $('#confirmMaterialColorBtn').click(function() {
-                materialPrimaryColor = $('#primaryColorInput').val();
-                materialSecondaryColor = $('#secondaryColorInput').val();
-
+        $(document).on('click', '#confirmMaterialColorBtn', function() {
                 $('#seeNecklace').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -233,12 +215,10 @@ $(document).ready(function() {
         $('#yesSeeNecklanceBtn').click(function() {
                drawNecklace(materialFamilies,
                             materialItems,
-                            materialType,
                             materialQuantity,
                             materialDistribution,
                             materialSequence,
-                            materialPrimaryColor,
-                            materialSecondaryColor
+                            materialColors
                );
 
                 $('#necklaceImage').fadeIn(fadeDefault);
@@ -299,60 +279,57 @@ $(document).ready(function() {
                         $(this).attr('chosen', 'true');
                 }
         });
+
+        $(document).on('change', '#colorsHexa input', function() {
+                const selectedId = $(this).attr('id');
+                const selectedColor = $(this).val();
+
+                materialColors.push({ id: selectedId, color: selectedColor });
+        });
 });
 
 function createMaterialColorForm(materialItems) {
         materialItems.forEach(function(item) {
-                ItemName = searchMaterialName(item + "Id");
+                itemId = item + "Id";
+
+                itemName = searchMaterialName(itemId);
 
                 const newParagraph = $("<p>", {
-                        id: "materialTypeQuestion",
+                        id: "materialColorQuestion",
                         text: "Qual é o cor do  material de " + itemName +"?"
                 });
                 $("#materialColorDiv").append(newParagraph);
 
-                const newDiv = $("<div>", { class: "coolors" });
+                const newDiv = $("<div>", { class: "colors", id: 'colorsHexa' });
                 $("#materialColorDiv").append(newDiv);
 
                 const newLabel1 = $("<label>", { id: "primaryColorLabel", text: "Cor Primária" });
                 newDiv.append(newLabel1);
-                const newInput1 = $("<input>", { id: "primaryColorInput", type: "color", value: "#000000" });
+                const newLine1 = $("<br>");
+                newDiv.append(newLine1);
+                const newInput1 = $("<input>", { id: "primaryColorInput-" + itemId, type: "color", value: "#000000" });
                 newDiv.append(newInput1);
 
-                const newLabel2 = $("<label>", { id: "secondaryColorLabel", text: "Cor Secundária",value: "#000000" });
-                newDiv.append(newLabel2);
-                const newInput2 = $("<input>", { id: "secondaryColorInput", type: "color", value: "#000000" });
-                newDiv.append(newInput2);
+                if(itemName.includes('rajada') || itemName.includes('rajado')) {
+                        const newLine2 = $("<br>");
+                        newDiv.append(newLine2);
+                        const newLine3 = $("<br>");
+                        newDiv.append(newLine3);
+
+                        const newLabel2 = $("<label>", { id: "secondaryColorLabel", text: "Cor Secundária",value: "#000000" });
+                        newDiv.append(newLabel2);
+                        const newLine4 = $("<br>");
+                        newDiv.append(newLine4);
+                        const newInput2 = $("<input>", { id: "secondaryColorInput-" + itemId, type: "color", value: "#000000" });
+                        newDiv.append(newInput2);
+                }
         });
 
-        const newButton = $("<button>", { id: "confirmMaterialBtn", text: "Confirmar" });
-        $("#materialColorDiv").append(newButton)
-}
 
-function createMaterialTypeForm(materialItems) {
-        materialItems.forEach(function(item) {
-                itemName = searchMaterialName(item + "Id");
-
-                const newParagraph = $("<p>", {
-                        id: "materialTypeQuestion",
-                        text: "Qual é o tipo de material de " + itemName +"?"
-                });
-                $("#materialTypeDiv").append(newParagraph);
-
-                const newDiv = $("<div>", { class: "characteristics" });
-                $("#materialTypeDiv").append(newDiv);
-
-                const newSelect = $("<select>", { id: "MaterialTypeSelect" });
-                newSelect.append($("<option>", { value: "liso", text: "Liso" }));
-                newSelect.append($("<option>", { value: "rajado", text: "Rajado" }));
-                newDiv.append(newSelect);
-        });
-
-        const newButton = $("<button>", {
-                id: "confirmMaterialBtn",
-                text: "Confirmar"
-        });
-        $("#materialTypeDiv").append(newButton)
+        const newDivButton = $("<div>", { class: "buttons" });
+        $("#materialColorDiv").append(newDivButton);
+        const newButton = $("<button>", { id: "confirmMaterialColorBtn", text: "Confirmar" });
+        newDivButton.append(newButton)
 }
 
 function moveToBottom() {
@@ -375,7 +352,6 @@ function restart() {
         $('#informMaterialsFamily').fadeOut(fadeDefault);
         $('#materialsDistribution').fadeOut(fadeDefault);
         $('#ordenation').fadeOut(fadeDefault);
-        $('#materialCharacteristic').fadeOut(fadeDefault);
         $('#materialColor').fadeOut(fadeDefault);
         $('#seeNecklace').fadeOut(fadeDefault);
         $('#necklaceImage').fadeOut(fadeDefault);
@@ -564,15 +540,13 @@ function svgStringsList (folder) {
         }
 }
 
-function drawNecklace(materialFamilies, materialItems, materialType, materialQuantity, materialDistribution, materialSequence, materialPrimaryColor, materialSecondaryColor) {
+function drawNecklace(materialFamilies, materialItems, materialQuantity, materialDistribution, materialSequence, materialColors) {
         console.log("Famílias: " + materialFamilies);
         console.log("Itens: " + materialItems);
-        console.log("Tipo: " + materialType);
         console.log("Quantidade: " + materialQuantity);
         console.log("Distribuição: " + materialDistribution);
         console.log("Sequencia: " + materialSequence);
-        console.log("Cor Primária: " + materialPrimaryColor);
-        console.log("Cor Secundária: " + materialSecondaryColor);
+        console.log("Cores: " + materialColors);
 }
 
 function searchMaterialName(materialId) {

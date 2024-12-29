@@ -150,7 +150,6 @@ label {
 .dialogs .inform-materials,
 .dialogs .materials-distribution,
 .dialogs .ordenation,
-.dialogs .material-characteristic,
 .dialogs .material-color,
 .dialogs .see-necklace,
 .dialogs .necklace-image,
@@ -190,7 +189,6 @@ label {
 .dialogs .inform-material-quantity .quantity,
 .dialogs .inform-materials .materials,
 .dialogs .ordenation .sequence,
-.dialogs .material-characteristic .characteristics,
 .dialogs .necklace-image .necklace,
 .dialogs .material-color .colors {
         display: block;
