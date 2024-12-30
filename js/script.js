@@ -100,6 +100,7 @@ $(document).ready(function() {
 
                 disableElement($('#materialQuantitySelect'));
                 disableElement($(this));
+                disableElement($('#confirmMaterialBtn'));
         });
 
         $('#confirmMaterialBtn').click(function() {
@@ -109,11 +110,19 @@ $(document).ready(function() {
                         if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
                                 hideSecondaryColor();
 
-                                $('#materialColor').fadeIn(fadeDefault);
+                                if($('#materialSelect').val() == 'strass' || $('#materialSelect').val() == 'luxo') {
+                                        createMaterialColorForm(materialItems)
+
+                                        $('#materialColor').fadeIn(fadeDefault);
+                                } else {
+                                        $('#seeNecklace').fadeIn(fadeDefault);
+                                }
                         } else {
                                 if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
                                         removeTransparentOption();
                                 }
+
+                                materialFamilies.push($('#materialSelect').val());
 
                                 $('#materialColor').fadeIn(fadeDefault);
                         }
@@ -258,6 +267,8 @@ $(document).ready(function() {
                 if (selectedImage) {
                         addMaterialImages(selectedImage);
                 }
+
+                $('#confirmMaterialBtn').removeAttr('disabled');
         });
 
         $(document).on('click', '#materialImages img', function() {
@@ -287,9 +298,6 @@ $(document).ready(function() {
 });
 
 function createMaterialColorForm(materialItems) {
-
-        console.log(materialItems);
-
         materialItems.forEach(function(item) {
                 itemId = item + "Id";
 
@@ -311,7 +319,7 @@ function createMaterialColorForm(materialItems) {
                 const newInput1 = $("<input>", { id: "primaryColorInput-" + itemId, type: "color", value: "#000000" });
                 newDiv.append(newInput1);
 
-                if(itemName.includes('rajada') || itemName.includes('rajado')) {
+                if(itemName.includes('rajada') || itemName.includes('rajado') || itemName == "strass" || itemName == 'luxo' ) {
                         const newLine2 = $("<br>");
                         newDiv.append(newLine2);
                         const newLine3 = $("<br>");
