@@ -58,7 +58,6 @@ $(document).ready(function() {
         $('#materialUniqueBtn').click(function() {
                 materialUnique = true;
 
-                $('#informMaterialQuantity').fadeOut(fadeDefault);
                 $('#informMaterialQuantity').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -70,7 +69,6 @@ $(document).ready(function() {
         $('#materialVariousBtn').click(function() {
                 materialUnique = false;
 
-                $('#informMaterialQuantity').fadeOut(fadeDefault);
                 $('#informMaterialQuantity').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -85,11 +83,11 @@ $(document).ready(function() {
                 let materialList = document.getElementById('materialSelect');
 
                 if(materialUnique == true) {
-                        $('#materialQuestion').text('Qual material que você quer usar?');
+                        $('#materialQuestion').text('Qual material você quer usar?');
 
                         materialList.removeAttribute('multiple');
                 } else {
-                        $('#materialQuestion').text('Quais materiais que você quer usar?');
+                        $('#materialQuestion').text('Quais materiais você quer usar?');
 
                         $('#materialSelect').css({'height': '120px'});
 
@@ -289,6 +287,9 @@ $(document).ready(function() {
 });
 
 function createMaterialColorForm(materialItems) {
+
+        console.log(materialItems);
+
         materialItems.forEach(function(item) {
                 itemId = item + "Id";
 
