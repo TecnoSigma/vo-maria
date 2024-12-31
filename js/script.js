@@ -1,3 +1,4 @@
+const quantityLimit = 50;
 const fadeDefault = 500;
 
 $(document).ready(function() {
@@ -552,30 +553,32 @@ function svgStringsList (folder) {
 }
 
 function drawNecklace() {
-//function drawNecklace(materialFamilies, materialItems, materialQuantity, materialDistribution, materialSequence, materialColors) {
+//function drawNecklace(materialFamilies, materialItems, materialDistribution, materialSequence, materialColors) {
         //console.log("Famílias: " + materialFamilies);         //muranos
         //OK: console.log("Itens: " + materialItems);               //bolaRajada,peixe
-        //console.log("Quantidade: " + materialQuantity);       //50
         //console.log("Distribuição: " + materialDistribution); //ordered
         //console.log("Sequencia: " + materialSequence);        //4
         //OK: console.log("Cores: " + materialColors);              //[object Object],[object Object],[object Object]
 
-        let materialQuantity = 100;
-        let materialSequence = 5;
+        let materialSequence = [
+                { id: 'bolaRajadaId', sequence: 1, quantity: 20 },
+                { id: 'peixeId', sequence: 5, quantity: 20}
+        ];
         let materialItems = ['bolaRajada', 'peixe'];
         let materialColors = [
-                { id: 'bolaRajada', color: ['#00ff00', '#0000ff'] },
-                { id: 'peixe', color: ['#000000'] }
+                { id: 'bolaRajadaId', color: ['#00ff00', '#0000ff'] },
+                { id: 'peixeId', color: ['#000000'] }
         ];
 
-        const limit = 50;
         let quantity = 0;
-        for(let i = 0; i < limit; i++) {
-                if(quantity > limit) { break; }
+        for(let i = 0; i < quantityLimit; i++) {
+                if(quantity > quantityLimit) { break; }
 
                 materialItems.forEach(function(item) {
-                        for(let i = 0; i < materialSequence; i++) {
-                                let colors = materialColors.find(color => color.id === item);
+                        // mount sequence
+                        let sequence = materialSequence.find(sequence => sequence.id === item + "Id").sequence;
+                        for(let i = 0; i < sequence; i++) {
+                                let colors = materialColors.find(color => color.id === item + "Id");
 
                                 // mount colors
                                 let materialFunc = '';
@@ -598,7 +601,7 @@ function drawNecklace() {
                 });
         }
 
-        $('#necklaceDoneMsg').text('Seu fio está pronto! Ele tem ' + quantity + ' contas.');
+        $('#necklaceDoneMsg').text('Seu fio está pronto!');
 }
 
 function searchMaterialName(materialId) {
