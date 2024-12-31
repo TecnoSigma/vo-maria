@@ -110,11 +110,6 @@ label {
         color: var(--dialog-font-color);
 }
 
-.avatar {
-        display: flex;
-        grid-template-columns: 1fr 1fr;
-}
-
 .avatar .avatar-image {
         background: linear-gradient(#6A6A6A, #FFFFFF);
         width: 100px;
@@ -143,14 +138,13 @@ label {
 }
 
 .dialogs .say-your-name,
-.dialogs .avatar-type,
 .dialogs .create-necklace,
-.dialogs .materials-diversity,
-.dialogs .inform-material-quantity,
-.dialogs .inform-materials,
+.dialogs .materials-diversification,
+.dialogs .materials-quantity,
+.dialogs .materials-family,
 .dialogs .materials-distribution,
-.dialogs .ordenation,
-.dialogs .material-color,
+.dialogs .materials-ordenation,
+.dialogs .materials-color,
 .dialogs .see-necklace,
 .dialogs .necklace-image,
 .dialogs .create-other-necklace,
@@ -180,26 +174,20 @@ label {
           border-bottom: 1px solid #006600;
 }
 
-.dialogs .avatar-type .dialog .avatars {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 30px;
-}
-
-.dialogs .inform-material-quantity .quantity,
-.dialogs .inform-materials .materials,
-.dialogs .ordenation .sequence,
+.dialogs .materials-quantity .quantity,
+.dialogs .materials-family .materials,
+.dialogs .materials-ordenation .sequence,
 .dialogs .necklace-image .necklace,
-.dialogs .material-color .colors {
+.dialogs .materials-color .colors {
         display: block;
         margin-bottom: 30px;
 }
 
-.dialogs .inform-materials .dialog .materials select {
+.dialogs .materials-family .dialog .materials select {
         overflow-y: auto;
 }
 
-.dialogs .inform-materials .dialog .material-images img {
+.dialogs .materials-family .dialog .material-images img {
         margin: 0px 20px 20px 0px;
         width: 80px;
         cursor: pointer;
@@ -208,24 +196,24 @@ label {
         box-shadow: var(--shadow);
         padding: 5px;
 }
-  .dialogs .inform-materials .dialog .material-images img:hover {
+  .dialogs .materials-family .dialog .material-images img:hover {
           transform: scale(1.2);
           transition: transform 0.3s;
   }
 
-.dialogs .material-color .dialog .colors input {
+.dialogs .materials-color .dialog .colors input {
         background-color: transparent;
         border: none;
         transform: scale(1);
         transition: transform 0.3s;
 }
-  .dialogs .material-color .dialog .colors input:hover {
+  .dialogs .materials-color .dialog .colors input:hover {
           cursor: pointer;
           transform: scale(1.2);
           transition: transform 0.3s;
   }
 
-.dialogs .material-color .dialog .colors label {
+.dialogs .materials-color .dialog .colors label {
         display: inline-block;
         margin-right: 10px;
 }
