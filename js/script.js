@@ -20,7 +20,9 @@ $(document).ready(function() {
                         let userName = $('#userName').val();
                         $('#userQuestion').text(userName + ', quer criar seu fio?');
 
-                        $('#createNecklace').fadeIn(fadeDefault);
+                        drawNecklace();
+                        $('#necklaceImage').fadeIn(fadeDefault);
+                        //$('#createNecklace').fadeIn(fadeDefault);
 
                         moveToBottom();
 
@@ -549,13 +551,54 @@ function svgStringsList (folder) {
         }
 }
 
-function drawNecklace(materialFamilies, materialItems, materialQuantity, materialDistribution, materialSequence, materialColors) {
-        console.log("Famílias: " + materialFamilies);
-        console.log("Itens: " + materialItems);
-        console.log("Quantidade: " + materialQuantity);
-        console.log("Distribuição: " + materialDistribution);
-        console.log("Sequencia: " + materialSequence);
-        console.log("Cores: " + materialColors);
+function drawNecklace() {
+//function drawNecklace(materialFamilies, materialItems, materialQuantity, materialDistribution, materialSequence, materialColors) {
+        //console.log("Famílias: " + materialFamilies);         //muranos
+        //OK: console.log("Itens: " + materialItems);               //bolaRajada,peixe
+        //console.log("Quantidade: " + materialQuantity);       //50
+        //console.log("Distribuição: " + materialDistribution); //ordered
+        //console.log("Sequencia: " + materialSequence);        //4
+        //OK: console.log("Cores: " + materialColors);              //[object Object],[object Object],[object Object]
+
+        let materialQuantity = 100;
+        let materialSequence = 5;
+        let materialItems = ['bolaRajada', 'peixe'];
+        let materialColors = [
+                { id: 'bolaRajada', color: ['#00ff00', '#0000ff'] },
+                { id: 'peixe', color: ['#000000'] }
+        ];
+
+        const limit = 50;
+        let quantity = 0;
+        for(let i = 0; i < limit; i++) {
+                if(quantity > limit) { break; }
+
+                materialItems.forEach(function(item) {
+                        for(let i = 0; i < materialSequence; i++) {
+                                let colors = materialColors.find(color => color.id === item);
+
+                                // mount colors
+                                let materialFunc = '';
+                                if(colors.color.length > 1) {
+                                        materialFunc = window[item](colors.color[0], colors.color[1])
+                                } else {
+                                        materialFunc = window[item](colors.color)
+                                }
+
+                                // mount images
+                                const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+                                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                const imgElement = $('<img>')
+                                        .attr('src', svgDataUrl)
+
+                                $('#necklaceDone').append(imgElement);
+
+                                quantity++;
+                        }
+                });
+        }
+
+        $('#necklaceDoneMsg').text('Seu fio está pronto! Ele tem ' + quantity + ' contas.');
 }
 
 function searchMaterialName(materialId) {

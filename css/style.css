@@ -229,3 +229,18 @@ label {
         display: inline-block;
         margin-right: 10px;
 }
+
+.necklace {
+        border: 1px solid #006600;
+        border-radius: 10px;
+        background-color: #262626;
+        padding: 30px 80px;
+        box-shadow: var(--shadow);
+}
+
+.necklace img {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+}
