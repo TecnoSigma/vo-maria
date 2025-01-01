@@ -17,14 +17,12 @@ $(document).ready(function() {
         $('#userName').focus();
 
         // Button of say-your-name section that prepares the necklace creation section
-        $('confirmYournameBtn').click(function() {
+        $('#confirmYourNameBtn').click(function() {
                 if ($('#userName').val() != '') {
                         let userName = $('#userName').val();
                         $('#userQuestion').text(userName + ', quer criar seu fio?');
 
-                        drawNecklace();
-                        $('#necklaceImage').fadeIn(fadeDefault);
-                        //$('#createNecklace').fadeIn(fadeDefault);
+                        $('#createNecklace').fadeIn(fadeDefault);
 
                         moveToBottom();
 
@@ -35,10 +33,6 @@ $(document).ready(function() {
 
         // Button of create-necklace section that prepares the materials diversity section
         $('#yesCreateNecklaceBtn').click(function() {
-                $('#callGrandmamma').fadeOut(fadeDefault);
-
-                sleep();
-
                 $('#materialsDiversification').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -51,8 +45,6 @@ $(document).ready(function() {
         $('#noCreateNecklaceBtn').click(function() {
                 $('#materialsDiversification').fadeOut(fadeDefault);
 
-                sleep();
-
                 $('#callGrandmamma').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -62,7 +54,7 @@ $(document).ready(function() {
         });
 
         // Button of materials-diversification section that prepares the inform-material-quantity section
-        $('#confirmMaterialFamilyBtn').click(function() {
+        $('#confirmMaterialUniqueBtn').click(function() {
                 materialUnique = true;
 
                 $('#materialsQuantity').fadeIn(fadeDefault);
