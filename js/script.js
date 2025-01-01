@@ -11,6 +11,7 @@ let materialColors = [];
 let materialAllItems = [];
 let materialItems = [];
 let materialTypes = [];
+let materialsColorDescription = [];
 
 $(document).ready(function() {
         $('#userName').focus();
@@ -87,20 +88,20 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialFamilyBtn').click(function() {
+                const onlyOneColor = ['coral'];
+                const withoutColor = [
+                        'metalico1',
+                        'metalico2',
+                        'metalico3',
+                        'prateado1',
+                        'prateado2',
+                        'prateado3',
+                        'bolaAramada',
+                        'ovalAramado'
+                ];
+
                 if(materialUnique == true) {
                         materialFamilies.push($('#materialSelect').val());
-
-                        const onlyOneColor = ['coral'];
-                        const withoutColor = [
-                                'metalico1',
-                                'metalico2',
-                                'metalico3',
-                                'prateado1',
-                                'prateado2',
-                                'prateado3',
-                                'bolaAramada',
-                                'ovalAramado'
-                        ];
 
                         // If material is without color,
                         // the see-necklace section is prepared
@@ -147,11 +148,25 @@ $(document).ready(function() {
                                 $('#materialsColor').fadeIn(fadeDefault);
                         }
                 } else {
-                        $('#materialSelect').val().forEach(function(material) {
-                                materialFamilies.push(material);
+                        materialItems.forEach(function(item) {
+                                if(onlyOneColor.includes(item)) {
+                                        materialsColorDescription
+                                                .push( { material: item, oneColor: true } );
+
+                                        return;
+                                }
+
+                                if(item.includes('Rajad') || item.includes('strass') || item.includes('luxo')) {
+                                        materialsColorDescription
+                                                .push( { material: item, oneColor: false } );
+
+                                        return;
+                                }
                         });
 
-                        $('#materialsDistribution').fadeIn(fadeDefault);
+                        createMaterialColorForm(materialItems);
+
+                        $('#materialsColor').fadeIn(fadeDefault);
                 }
 
                 moveToBottom();
@@ -225,7 +240,11 @@ $(document).ready(function() {
 
         // Button of materials-color section that prepares the see-necklace section
         $(document).on('click', '#confirmMaterialColorBtn', function() {
-                $('#seeNecklace').fadeIn(fadeDefault);
+                if(materialUnique) {
+                        $('#seeNecklace').fadeIn(fadeDefault);
+                } else {
+                        $('#materialsDistribution').fadeIn(fadeDefault);
+                }
 
                 moveToBottom();
 
@@ -294,10 +313,10 @@ $(document).ready(function() {
         $(document).on('click', '#materialImages img', function() {
                 const imageId = $(this).attr('id');
 
-                materialItems = [];
-
                 // Then materiai is unique, all items are disabled and the selected item is enabled
                 if(materialUnique) {
+                        materialItems = [];
+
                         materialAllItems.forEach(function(item) {
                                 obj = $('#' + item);
                                 disableElement(obj);
@@ -307,21 +326,12 @@ $(document).ready(function() {
                         materialItems.push(imageId);
 
                         $(this).removeAttr('disabled');
-                }
+                } else {
+                        materialItems.push(imageId);
 
-//                if($(this).attr('chosen')) {
-//                        $(this).attr('chosen', false);
-//
-//                        var index = $.inArray(imageId, materialItems);
-//                        if (index !== -1) { materialItems.splice(index, 1); }
-//
-//                        $(this).css('background-color', 'transparent');
-//                } else {
-//                        if (!materialItems.includes(imageId)) { materialItems.push(imageId); }
-//                        $(this).css('background-color', '#006600');
-//
-//                        $(this).attr('chosen', 'true');
-//                }
+                        $(this).css('background-color', '#006600');
+
+                }
         });
 
         $(document).on('change', '#colorsHexa input', function() {
@@ -333,7 +343,20 @@ $(document).ready(function() {
 });
 
 function createMaterialColorForm(materialItems) {
+        const withoutColor = [
+                        'metalico1',
+                        'metalico2',
+                        'metalico3',
+                        'prateado1',
+                        'prateado2',
+                        'prateado3',
+                        'bolaAramada',
+                        'ovalAramado'
+                ];
+
         materialItems.forEach(function(item) {
+                if(withoutColor.includes(item)) { return; }
+
                 itemId = item + "Id";
 
                 itemName = searchMaterialName(itemId);
