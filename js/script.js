@@ -4,7 +4,7 @@ const fadeDefault = 500;
 let materialUnique = false;
 let materialFamilies = [];
 let materialDistribution = '';
-let materialSequence = '';
+let materialSequence = [];
 let materialPrimaryColor = '';
 let materialSecondaryColor = '';
 let materialColors = [];
@@ -191,7 +191,7 @@ $(document).ready(function() {
         $('#confirmOrderedDistributionBtn').click(function() {
                 materialDistribution = 'ordered';
 
-                addSequenceOption(materialQuantity);
+                createMaterialSequenceForm();
 
                 $('#materialsOrdenation').fadeIn(fadeDefault);
 
@@ -201,24 +201,17 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        // Button of materials-ordenation section that prepares the materials-color section
+        // Button of materials-ordenation section that prepares the see-necklace section
         $('#confirmMaterialsOrdenationBtn').click(function() {
-                materialSequence = $('#sequenceSelect').val();
-
-                if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
-                        removeTransparentOption();
-                }
-
-                createMaterialColorForm(materialItems);
-
-                $('#materialsColor').fadeIn(fadeDefault);
+                $('#seeNecklace').fadeIn(fadeDefault);
 
                 moveToBottom();
 
-                disableElement($('#sequenceSelect'));
+                disableElement($('#confirmMaterialsOrdenationBtn'));
                 disableElement($(this));
         });
 
+        // Button of materials-color section that prepares the materials-color section
         $('#confirmMaterialTypeBtn').click(function() {
                 materialType = $('#MaterialTypeSelect').val();
 
@@ -234,7 +227,8 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        // Button of materials-color section that prepares the see-necklace section
+        // Button of materials-color section that prepares
+        // the see-necklace section or the materials-distribution section
         $(document).on('click', '#confirmMaterialColorBtn', function() {
                 if(materialUnique) {
                         $('#seeNecklace').fadeIn(fadeDefault);
@@ -336,7 +330,40 @@ $(document).ready(function() {
 
                 materialColors.push({ id: selectedId, color: selectedColor });
         });
+
+        $(document).on('change', '#materialsSequence select', function() {
+                const selectedId = $(this).attr('id');
+                const selectedItem = $(this).val();
+
+                materialSequence.push({ id: selectedId.replace("sequence", "") + "Id", sequence: selectedItem });
+
+                disableElement($(this));
+        });
 });
+
+function createMaterialSequenceForm() {
+        newDiv = $('#materialsSequence');
+        materialItems.forEach(function(item) {
+                const newLabel = $("<label>", { text: searchMaterialName(item + "Id") });
+                newDiv.append(newLabel);
+
+                const newLine1 = $("<br>");
+                newDiv.append(newLine1);
+
+                const newSelect = $("<select>", { id: "sequence" + item });
+                newDiv.append(newSelect);
+
+                for (let i = 1; i <= 10; i++) {
+                        const newOption = $("<option>", { value: i, text: i });
+                        newSelect.append(newOption);
+                }
+
+                const newLine2 = $("<br>");
+                newDiv.append(newLine2);
+                const newLine3 = $("<br>");
+                newDiv.append(newLine3);
+        });
+}
 
 function createMaterialColorForm(materialItems) {
         const withoutColor = [
@@ -412,7 +439,7 @@ function restart() {
         materialUnique = false;
         materialFamilies = [];
         materialDistribution = '';
-        materialSequence = '';
+        materialSequence = [];
         materialPrimaryColor = '';
         materialSecondaryColor = '';
         materialColors = [];
@@ -437,8 +464,6 @@ function restart() {
         $('button').each(function() { $(this).prop('disabled', false); });
         $('select').each(function() { $(this).prop('disabled', false); });
 
-        addTransparentOption();
-
         $('#primaryColorInput').val('#000000');
         $('#secondaryColorInput').val('#000000');
 
@@ -457,29 +482,6 @@ function removeTransparentOption() {
                         break;
                 }
          }
-}
-
-function addTransparentOption() {
-        //const select = document.getElementById("MaterialTypeSelect");
-        //const newOption = document.createElement("option");
-        //newOption.value = "transparente";
-        //newOption.text = "Transparente";
-
-        //select.appendChild(newOption);
-}
-
-function addSequenceOption(materialQuantity) {
-        quantity = parseInt(materialQuantity) / 2;
-
-        const select = document.getElementById("sequenceSelect");
-
-        for (let i = 2; i <= quantity; i++) {
-                const newOption = document.createElement("option");
-                newOption.value = i;
-                newOption.text = i;
-
-                select.appendChild(newOption);
-        }
 }
 
 function hideSecondaryColor() {

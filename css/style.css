@@ -181,6 +181,12 @@ label {
         margin-bottom: 30px;
 }
 
+.dialogs .materials-ordenation .sequence label {
+        display: block;
+        margin-bottom: -10px;
+        text-transform: capitalize;
+}
+
 .dialogs .materials-family .dialog .materials select {
         overflow-y: auto;
 }
