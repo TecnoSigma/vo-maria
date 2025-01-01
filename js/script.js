@@ -87,9 +87,6 @@ $(document).ready(function() {
         });
 
         $('#confirmMaterialFamilyBtn').click(function() {
-                console.log(materialUnique);
-                console.log(materialItems);
-
                 if(materialUnique == true) {
                         materialFamilies.push($('#materialSelect').val());
 
@@ -100,7 +97,7 @@ $(document).ready(function() {
                                 'metalico3',
                                 'prateado1',
                                 'prateado2',
-                                'prateado_3',
+                                'prateado3',
                                 'bolaAramada',
                                 'ovalAramado'
                         ];
@@ -108,7 +105,15 @@ $(document).ready(function() {
                         // If material is without color,
                         // the see-necklace section is prepared
                         if(withoutColor.includes(materialItems[0])) {
-                                $('#seeNecklace').fadeIn(fadeDefault);                                                        }
+                                $('#seeNecklace').fadeIn(fadeDefault);
+
+                                moveToBottom();
+
+                                disableElement($('#materialSelect'));
+                                disableElement($(this));
+
+                                return;
+                        }
 
                         // If material is unique and has only one color, the materials-color section is prepared
                         if(onlyOneColor.includes(materialItems[0])) {
@@ -117,11 +122,18 @@ $(document).ready(function() {
                                 createMaterialColorForm(materialItems)
 
                                 $('#materialsColor').fadeIn(fadeDefault);
+
+                                moveToBottom();
+
+                                disableElement($('#materialSelect'));
+                                disableElement($(this));
+
+                                return;
                         }
 
                         // If material is unique and is "Rajado" or "Strass" or "Luxo",
                         // the materials-color (with two colors section is prepared
-                        if(materialItems[0].includes('Rajad') || materialItems[0].includes('strass')) || materialItems[0].includes('luxo') {
+                        if(materialItems[0].includes('Rajad') || materialItems[0].includes('strass') || materialItems[0].includes('luxo')) {
                                 createMaterialColorForm(materialItems)
 
                                 $('#materialsColor').fadeIn(fadeDefault);
@@ -339,7 +351,7 @@ function createMaterialColorForm(materialItems) {
                 newDiv.append(newLabel1);
                 const newLine1 = $("<br>");
                 newDiv.append(newLine1);
-                const newInput1 = $("<input>", { id: "primaryColorInput-" + itemId, type: "color", value: "#000000" });
+                const newInput1 = $("<input>", { id: itemId, type: "color", value: "#000000" });
                 newDiv.append(newInput1);
 
                 if(itemName.includes('rajada') || itemName.includes('rajado') || itemName == "strass" || itemName == 'luxo' ) {
@@ -352,7 +364,7 @@ function createMaterialColorForm(materialItems) {
                         newDiv.append(newLabel2);
                         const newLine4 = $("<br>");
                         newDiv.append(newLine4);
-                        const newInput2 = $("<input>", { id: "secondaryColorInput-" + itemId, type: "color", value: "#000000" });
+                        const newInput2 = $("<input>", { id: itemId, type: "color", value: "#000000" });
                         newDiv.append(newInput2);
                 }
         });
@@ -378,6 +390,17 @@ function disableElement(element) {
 }
 
 function restart() {
+        materialUnique = false;
+        materialFamilies = [];
+        materialDistribution = '';
+        materialSequence = '';
+        materialPrimaryColor = '';
+        materialSecondaryColor = '';
+        materialColors = [];
+        materialAllItems = [];
+        materialItems = [];
+        materialTypes = [];
+
         $('#sayYourName').fadeOut(fadeDefault);
         $('#createNecklace').fadeOut(fadeDefault);
         $('#materialsDiversification').fadeOut(fadeDefault);
@@ -418,12 +441,12 @@ function removeTransparentOption() {
 }
 
 function addTransparentOption() {
-        const select = document.getElementById("MaterialTypeSelect");
-        const newOption = document.createElement("option");
-        newOption.value = "transparente";
-        newOption.text = "Transparente";
+        //const select = document.getElementById("MaterialTypeSelect");
+        //const newOption = document.createElement("option");
+        //newOption.value = "transparente";
+        //newOption.text = "Transparente";
 
-        select.appendChild(newOption);
+        //select.appendChild(newOption);
 }
 
 function addSequenceOption(materialQuantity) {
@@ -575,54 +598,74 @@ function svgStringsList (folder) {
 }
 
 function drawNecklace() {
-//function drawNecklace(materialFamilies, materialItems, materialDistribution, materialSequence, materialColors) {
-        //console.log("Famílias: " + materialFamilies);         //muranos
-        //OK: console.log("Itens: " + materialItems);               //bolaRajada,peixe
-        //console.log("Distribuição: " + materialDistribution); //ordered
-        //console.log("Sequencia: " + materialSequence);        //4
-        //OK: console.log("Cores: " + materialColors);              //[object Object],[object Object],[object Object]
-
-        let materialSequence = [
-                { id: 'bolaId', sequence: 1, quantity: 30 },
-                { id: 'azeitonaRajadaId', sequence: 7, quantity: 50}
-        ];
-        let materialItems = ['bola', 'azeitonaRajada'];
-        let materialColors = [
-                { id: 'bolaId', color: ['#000080'] },
-                { id: 'azeitonaRajadaId', color: ['#006600', '#0066ff'] }
-        ];
-
-        let quantity = 0;
-        for(let i = 0; i < quantityLimit; i++) {
-                if(quantity > quantityLimit) { break; }
-
-                materialItems.forEach(function(item) {
-                        // mount sequence
-                        let sequence = materialSequence.find(sequence => sequence.id === item + "Id").sequence;
-                        for(let i = 0; i < sequence; i++) {
-                                let colors = materialColors.find(color => color.id === item + "Id");
+        if(materialUnique) {
+                for(let i = 0; i < quantityLimit; i++) {
+                        materialItems.forEach(function(item) {
+                                let colors = materialColors.filter(color => color.id === item + "Id");
 
                                 // mount colors
                                 let materialFunc = '';
-                                if(colors.color.length > 1) {
-                                        materialFunc = window[item](colors.color[0], colors.color[1])
+                                if(colors.length > 1) {
+                                        materialFunc = window[item](colors[0].color, colors[1].color);
+                                } else if(colors.length == 1) {
+                                        materialFunc = window[item](colors[0].color)
                                 } else {
-                                        materialFunc = window[item](colors.color)
+                                        materialFunc = window[item]()
                                 }
 
-                                // mount images
-                                const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
-                                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
-                                const imgElement = $('<img>')
-                                        .attr('src', svgDataUrl)
+                               // mount images
+                               const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+                               const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                               const imgElement = $('<img>').attr('src', svgDataUrl)
 
-                                $('#necklaceDone').append(imgElement);
-
-                                quantity++;
-                        }
-                });
+                               $('#necklaceDone').append(imgElement);
+                        });
+                }
         }
 
+return;
+
+//        let materialSequence = [
+//               { id: 'bolaId', sequence: 1, quantity: 30 },
+//                { id: 'azeitonaRajadaId', sequence: 7, quantity: 50}
+//        ];
+//        let materialItems = ['bola', 'azeitonaRajada'];
+//        let materialColors = [
+//                { id: 'bolaId', color: ['#000080'] },
+//                { id: 'azeitonaRajadaId', color: ['#006600', '#0066ff'] }
+//        ];
+//
+//        let quantity = 0;
+//        for(let i = 0; i < quantityLimit; i++) {
+//                if(quantity > quantityLimit) { break; }
+//
+//                materialItems.forEach(function(item) {
+//                        // mount sequence
+//                        let sequence = materialSequence.find(sequence => sequence.id === item + "Id").sequence;
+//                        for(let i = 0; i < sequence; i++) {
+//                                let colors = materialColors.find(color => color.id === item + "Id");
+//
+//                                // mount colors
+//                                let materialFunc = '';
+//                                if(colors.color.length > 1) {
+//                                        materialFunc = window[item](colors.color[0], colors.color[1])
+//                                } else {
+//                                        materialFunc = window[item](colors.color)
+//                                }
+//
+//                                // mount images
+//                                const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+//                                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+//                                const imgElement = $('<img>')
+//                                        .attr('src', svgDataUrl)
+//
+//                                $('#necklaceDone').append(imgElement);
+//
+//                                quantity++;
+//                        }
+//                });
+//        }
+//
         $('#necklaceDoneMsg').text('Seu fio está pronto!');
 }
 
