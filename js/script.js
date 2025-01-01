@@ -179,11 +179,7 @@ $(document).ready(function() {
         $('#confirmRandomDistributionBtn').click(function() {
                 materialDistribution = 'random';
 
-                if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
-                        removeTransparentOption();
-                }
-
-                $('#materialsColor').fadeIn(fadeDefault);
+                $('#seeNecklace').fadeIn(fadeDefault);
 
                 moveToBottom();
 
@@ -644,51 +640,32 @@ function drawNecklace() {
                                $('#necklaceDone').append(imgElement);
                         });
                 }
+        } else {
+                for(let i = 0; i < quantityLimit; i++) {
+
+                        // fetches a random item from the list
+                        let item = materialItems[Math.floor(Math.random() * materialItems.length)];
+                        let colors = materialColors.filter(color => color.id === item + "Id");
+
+                        // mount colors
+                        let materialFunc = '';
+                        if(colors.length > 1) {
+                                materialFunc = window[item](colors[0].color, colors[1].color);
+                        } else if(colors.length == 1) {
+                                materialFunc = window[item](colors[0].color)
+                        } else {
+                                materialFunc = window[item]()
+                        }
+
+                        // mount images
+                        const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+                        const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                        const imgElement = $('<img>').attr('src', svgDataUrl)
+
+                        $('#necklaceDone').append(imgElement);
+                }
         }
 
-return;
-
-//        let materialSequence = [
-//               { id: 'bolaId', sequence: 1, quantity: 30 },
-//                { id: 'azeitonaRajadaId', sequence: 7, quantity: 50}
-//        ];
-//        let materialItems = ['bola', 'azeitonaRajada'];
-//        let materialColors = [
-//                { id: 'bolaId', color: ['#000080'] },
-//                { id: 'azeitonaRajadaId', color: ['#006600', '#0066ff'] }
-//        ];
-//
-//        let quantity = 0;
-//        for(let i = 0; i < quantityLimit; i++) {
-//                if(quantity > quantityLimit) { break; }
-//
-//                materialItems.forEach(function(item) {
-//                        // mount sequence
-//                        let sequence = materialSequence.find(sequence => sequence.id === item + "Id").sequence;
-//                        for(let i = 0; i < sequence; i++) {
-//                                let colors = materialColors.find(color => color.id === item + "Id");
-//
-//                                // mount colors
-//                                let materialFunc = '';
-//                                if(colors.color.length > 1) {
-//                                        materialFunc = window[item](colors.color[0], colors.color[1])
-//                                } else {
-//                                        materialFunc = window[item](colors.color)
-//                                }
-//
-//                                // mount images
-//                                const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
-//                                const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
-//                                const imgElement = $('<img>')
-//                                        .attr('src', svgDataUrl)
-//
-//                                $('#necklaceDone').append(imgElement);
-//
-//                                quantity++;
-//                        }
-//                });
-//        }
-//
         $('#necklaceDoneMsg').text('Seu fio está pronto!');
 }
 

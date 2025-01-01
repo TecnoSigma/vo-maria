@@ -20,10 +20,10 @@ top to bottom direction
 ******[#red] Tipo de material\n<size: 10>- liso;\n<size: 10>- rajado;\n<size: 10>- metálico;
 *******[#green] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
 
-********[#lightblue] Distribuição\n<size: 10>- aleatório;\n<size: 10>- ordenado;
+********[#green] Distribuição\n<size: 10>- aleatório;\n<size: 10>- ordenado;
 *********_ aleatório
-********** Ver fio
-*********** Imagem do fio
+**********[#green] Ver fio
+***********[#green] Imagem do fio
 ************[#green] Começar de novo
 *************[#green] Agradecimentos
 *********_ ordenado
