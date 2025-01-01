@@ -140,7 +140,6 @@ label {
 .dialogs .say-your-name,
 .dialogs .create-necklace,
 .dialogs .materials-diversification,
-.dialogs .materials-quantity,
 .dialogs .materials-family,
 .dialogs .materials-distribution,
 .dialogs .materials-ordenation,
@@ -174,7 +173,6 @@ label {
           border-bottom: 1px solid #006600;
 }
 
-.dialogs .materials-quantity .quantity,
 .dialogs .materials-family .materials,
 .dialogs .materials-ordenation .sequence,
 .dialogs .necklace-image .necklace,

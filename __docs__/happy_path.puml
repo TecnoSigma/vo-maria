@@ -6,16 +6,15 @@ top to bottom direction
 *[#green] Diga seu nome
 **[#green] Criar fio
 
-*** Diversidade\n<size: 10>- único;\n<size: 10>- variado;
+***[#green] Diversidade\n<size: 10>- único;\n<size: 10>- variado;
 ****_ único
 *****[#lightgreen] Família do material\n<size: 10>- corais;\n<size: 10>- entremeios;\n<size: 10>- miçangas;\n<size: 10>- muranos;
-******[#lightgreen] Quantidade
-*******[#lightgreen] Tipo de material\n<size: 10>- liso;\n<size: 10>- rajado;\n<size: 10>- metálico;
-********[#lightgreen] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
-********* Ver fio
-********** Imagem do fio
-*********** Começar de novo
-************ Agradecimentos
+******[#lightgreen] Tipo de material\n<size: 10>- liso;\n<size: 10>- rajado;\n<size: 10>- metálico;
+*******[#lightgreen] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
+******** Ver fio
+********* Imagem do fio
+********** Começar de novo
+*********** Agradecimentos
 
 ****_ variado
 *****[#lightblue] Família do material\n<size: 10>- corais;\n<size: 10>- entremeios;\n<size: 10>- miçangas;\n<size: 10>- muranos;

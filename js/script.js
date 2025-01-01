@@ -57,7 +57,9 @@ $(document).ready(function() {
         $('#confirmMaterialUniqueBtn').click(function() {
                 materialUnique = true;
 
-                $('#materialsQuantity').fadeIn(fadeDefault);
+                $('#materialQuestion').text('Qual material você quer usar?');
+
+                $('#materialsFamily').fadeIn(fadeDefault);
 
                 moveToBottom();
 
@@ -67,41 +69,22 @@ $(document).ready(function() {
 
         // Button of materials-diversification section that prepares the inform-material-quantity section
         $('#confirmMaterialVariousBtn').click(function() {
-                materialUnique = false;
-
-                $('#materialsQuantity').fadeIn(fadeDefault);
-
-                moveToBottom();
-
-                disableElement($('#confirmMaterialUniqueBtn'));
-                disableElement($(this));
-        });
-
-        // Button of inform-material-quantity section that prepares the inform-material-family section
-        $('#confirmMaterialQuantityBtn').click(function() {
-                materialQuantity = $('#materialQuantitySelect').val();
-
                 let materialList = document.getElementById('materialSelect');
 
-                if(materialUnique == true) {
-                        $('#materialQuestion').text('Qual material você quer usar?');
+                materialUnique = false;
 
-                        materialList.removeAttribute('multiple');
-                } else {
-                        $('#materialQuestion').text('Quais materiais você quer usar?');
+                $('#materialQuestion').text('Quais materiais você quer usar?');
 
-                        $('#materialSelect').css({'height': '120px'});
+                $('#materialSelect').css({'height': '120px'});
 
-                        materialList.setAttribute('multiple', true);
-                }
+                materialList.setAttribute('multiple', true);
 
                 $('#materialsFamily').fadeIn(fadeDefault);
 
                 moveToBottom();
 
-                disableElement($('#materialQuantitySelect'));
+                disableElement($('#confirmMaterialUniqueBtn'));
                 disableElement($(this));
-                disableElement($('#confirmMaterialBtn'));
         });
 
         $('#confirmMaterialBtn').click(function() {
@@ -365,7 +348,6 @@ function restart() {
         $('#sayYourName').fadeOut(fadeDefault);
         $('#createNecklace').fadeOut(fadeDefault);
         $('#materialsDiversification').fadeOut(fadeDefault);
-        $('#materialsQuantity').fadeOut(fadeDefault);
         $('#materialsFamily').fadeOut(fadeDefault);
         $('#materialsDistribution').fadeOut(fadeDefault);
         $('#materialsOrdenation').fadeOut(fadeDefault);
