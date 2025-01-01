@@ -1,19 +1,18 @@
 const quantityLimit = 50;
 const fadeDefault = 500;
 
-$(document).ready(function() {
-        let materialUnique = false;
-        let materialFamilies = [];
-        let materialQuantity = 0;
-        let materialDistribution = '';
-        let materialSequence = '';
-        let materialPrimaryColor = '';
-        let materialSecondaryColor = '';
-        let materialColors = [];
-        let materialItems = [];
-        let materialData = [];
-        let materialTypes = [];
+let materialUnique = false;
+let materialFamilies = [];
+let materialDistribution = '';
+let materialSequence = '';
+let materialPrimaryColor = '';
+let materialSecondaryColor = '';
+let materialColors = [];
+let materialAllItems = [];
+let materialItems = [];
+let materialTypes = [];
 
+$(document).ready(function() {
         $('#userName').focus();
 
         // Button of say-your-name section that prepares the necklace creation section
@@ -53,7 +52,7 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        // Button of materials-diversification section that prepares the inform-material-quantity section
+        // Button of materials-diversification section that prepares the inform-material-family section
         $('#confirmMaterialUniqueBtn').click(function() {
                 materialUnique = true;
 
@@ -67,7 +66,7 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        // Button of materials-diversification section that prepares the inform-material-quantity section
+        // Button of materials-diversification section that prepares the inform-material-family section
         $('#confirmMaterialVariousBtn').click(function() {
                 let materialList = document.getElementById('materialSelect');
 
@@ -87,26 +86,51 @@ $(document).ready(function() {
                 disableElement($(this));
         });
 
-        $('#confirmMaterialBtn').click(function() {
+        $('#confirmMaterialFamilyBtn').click(function() {
+                console.log(materialUnique);
+                console.log(materialItems);
+
                 if(materialUnique == true) {
                         materialFamilies.push($('#materialSelect').val());
 
-                        if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
+                        const onlyOneColor = ['coral'];
+                        const withoutColor = [
+                                'metalico1',
+                                'metalico2',
+                                'metalico3',
+                                'prateado1',
+                                'prateado2',
+                                'prateado_3',
+                                'bolaAramada',
+                                'ovalAramado'
+                        ];
+
+                        // If material is without color,
+                        // the see-necklace section is prepared
+                        if(withoutColor.includes(materialItems[0])) {
+                                $('#seeNecklace').fadeIn(fadeDefault);                                                        }
+
+                        // If material is unique and has only one color, the materials-color section is prepared
+                        if(onlyOneColor.includes(materialItems[0])) {
                                 hideSecondaryColor();
 
-                                if($('#materialSelect').val() == 'strass' || $('#materialSelect').val() == 'luxo') {
-                                        createMaterialColorForm(materialItems)
+                                createMaterialColorForm(materialItems)
 
-                                        $('#materialisColor').fadeIn(fadeDefault);
-                                } else {
-                                        $('#seeNecklace').fadeIn(fadeDefault);
-                                }
+                                $('#materialsColor').fadeIn(fadeDefault);
+                        }
+
+                        // If material is unique and is "Rajado" or "Strass" or "Luxo",
+                        // the materials-color (with two colors section is prepared
+                        if(materialItems[0].includes('Rajad') || materialItems[0].includes('strass')) || materialItems[0].includes('luxo') {
+                                createMaterialColorForm(materialItems)
+
+                                $('#materialsColor').fadeIn(fadeDefault);
+                        // If material is unique and is not "Rajado",
+                        // the materials-color (with one colors section is prepared
                         } else {
-                                if(materialFamilies.includes('corals') || materialFamilies.includes('insets')) {
-                                        removeTransparentOption();
-                                }
+                                hideSecondaryColor();
 
-                                materialFamilies.push($('#materialSelect').val());
+                                createMaterialColorForm(materialItems)
 
                                 $('#materialsColor').fadeIn(fadeDefault);
                         }
@@ -117,8 +141,6 @@ $(document).ready(function() {
 
                         $('#materialsDistribution').fadeIn(fadeDefault);
                 }
-
-                materialData.push(materialItems);
 
                 moveToBottom();
 
@@ -210,13 +232,7 @@ $(document).ready(function() {
 
         // Button of see-necklace section that prepares the necklace-image section
         $('#yesSeeNecklanceBtn').click(function() {
-               drawNecklace(materialFamilies,
-                            materialItems,
-                            materialQuantity,
-                            materialDistribution,
-                            materialSequence,
-                            materialColors
-               );
+                drawNecklace();
 
                 $('#necklaceImage').fadeIn(fadeDefault);
 
@@ -255,6 +271,8 @@ $(document).ready(function() {
                 $('#materialImages').empty();
 
                 if (selectedImage) {
+                        materialAllItems = [];
+
                         addMaterialImages(selectedImage);
                 }
 
@@ -264,19 +282,34 @@ $(document).ready(function() {
         $(document).on('click', '#materialImages img', function() {
                 const imageId = $(this).attr('id');
 
-                if($(this).attr('chosen')) {
-                        $(this).attr('chosen', false);
+                materialItems = [];
 
-                        var index = $.inArray(imageId, materialItems);
-                        if (index !== -1) { materialItems.splice(index, 1); }
+                // Then materiai is unique, all items are disabled and the selected item is enabled
+                if(materialUnique) {
+                        materialAllItems.forEach(function(item) {
+                                obj = $('#' + item);
+                                disableElement(obj);
+                                obj.css('background-color', 'transparent');
+                        });
 
-                        $(this).css('background-color', 'transparent');
-                } else {
-                        if (!materialItems.includes(imageId)) { materialItems.push(imageId); }
-                        $(this).css('background-color', '#006600');
+                        materialItems.push(imageId);
 
-                        $(this).attr('chosen', 'true');
+                        $(this).removeAttr('disabled');
                 }
+
+//                if($(this).attr('chosen')) {
+//                        $(this).attr('chosen', false);
+//
+//                        var index = $.inArray(imageId, materialItems);
+//                        if (index !== -1) { materialItems.splice(index, 1); }
+//
+//                        $(this).css('background-color', 'transparent');
+//                } else {
+//                        if (!materialItems.includes(imageId)) { materialItems.push(imageId); }
+//                        $(this).css('background-color', '#006600');
+//
+//                        $(this).attr('chosen', 'true');
+//                }
         });
 
         $(document).on('change', '#colorsHexa input', function() {
@@ -427,6 +460,8 @@ function convertStringToImage(folder) {
                         .attr('src', svgDataUrl)
                         .attr('alt', svgString.id);
 
+                materialAllItems.push(svgString.id);
+
                 $('#materialImages').append(imgElement);
 
                 imgElement.on('load', () => { URL.revokeObjectURL(svgDataUrl); });
@@ -444,7 +479,7 @@ function addMaterialImages(folders) {
 function svgStringsList (folder) {
         if(folder == 'insets') {
                 return [
-                        { id: 'bolaArmada', title: searchMaterialName('bolaArmadaId'), svg: bolaAramada() },
+                        { id: 'bolaAramada', title: searchMaterialName('bolaAramadaId'), svg: bolaAramada() },
                         { id: 'luxo', title: searchMaterialName('luxoId'), svg: luxo() },
                         { id: 'ovalAramado', title: searchMaterialName('ovalAramadoId'), svg: ovalAramado() },
                         { id: 'strass', title: searchMaterialName('strassId'), svg: strass() }
@@ -593,7 +628,7 @@ function drawNecklace() {
 
 function searchMaterialName(materialId) {
         materialDataList = [
-                { id: 'bolaArmadaId', name: 'bola aramada' },
+                { id: 'bolaAramadaId', name: 'bola aramada' },
                 { id: 'luxoId', name: 'luxo'  },
                 { id: 'ovalAramadoId', name: 'oval aramado' },
                 { id: 'strassId', name: 'strass' },
