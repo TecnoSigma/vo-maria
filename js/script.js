@@ -291,7 +291,7 @@ $(document).ready(function() {
         $('#downloadBtn').click(function() {
                 const $captureElement = $("#necklaceDone");
 
-                html2canvas($captureElement[0]).then(function (canvas) {
+                html2canvas($captureElement[0], { backgroundColor: '#262626' }).then(function (canvas) {
                         const link = document.createElement("a");
 
                         link.download = "fio-de-contas.png";
