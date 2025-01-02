@@ -87,7 +87,7 @@ $(document).ready(function() {
 
         // Button of materials-family section that prepares the materials-color section
         $('#confirmMaterialFamilyBtn').click(function() {
-                const onlyOneColor = ['coral'];
+                const onlyOneColor = ['coral', 'strass', 'luxo'];
                 const withoutColor = [
                         'metalico1',
                         'metalico2',
@@ -133,7 +133,7 @@ $(document).ready(function() {
 
                         // If material is unique and is "Rajado" or "Strass" or "Luxo",
                         // the materials-color (with two colors section is prepared
-                        if(materialItems[0].includes('Rajad') || materialItems[0].includes('strass') || materialItems[0].includes('luxo')) {
+                        if(materialItems[0].includes('Rajad')) {
                                 createMaterialColorForm(materialItems)
 
                                 $('#materialsColor').fadeIn(fadeDefault);
@@ -151,13 +151,6 @@ $(document).ready(function() {
                                 if(onlyOneColor.includes(item)) {
                                         materialsColorDescription
                                                 .push( { material: item, oneColor: true } );
-
-                                        return;
-                                }
-
-                                if(item.includes('Rajad') || item.includes('strass') || item.includes('luxo')) {
-                                        materialsColorDescription
-                                                .push( { material: item, oneColor: false } );
 
                                         return;
                                 }
@@ -425,7 +418,7 @@ function createMaterialColorForm(materialItems) {
                 const newInput1 = $("<input>", { id: itemId, type: "color", value: "#000000" });
                 newDiv.append(newInput1);
 
-                if(itemName.includes('rajada') || itemName.includes('rajado') || itemName == "strass" || itemName == 'luxo' ) {
+                if(itemName.includes('rajada') || itemName.includes('rajado')) {
                         const newLine2 = $("<br>");
                         newDiv.append(newLine2);
                         const newLine3 = $("<br>");
