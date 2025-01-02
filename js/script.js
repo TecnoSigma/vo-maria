@@ -668,12 +668,39 @@ function drawNecklace() {
                 for(let i = 0; i < quantityLimit; i++) {
                         if(quantity > quantityLimit) { break; }
 
-                        materialItems.forEach(function(item) {
-                                // mount sequence
-                                let sequence = materialSequence
-                                                      .find(sequence => sequence.id === item + "Id")
-                                                      .sequence;
-                                for(let i = 0; i < sequence; i++) {
+                        if(materialDistribution == 'ordered'){
+                                materialItems.forEach(function(item) {
+                                        // mount sequence
+                                        let sequence = materialSequence
+                                                          .find(sequence => sequence.id === item + "Id")
+                                                          .sequence;
+                                        for(let i = 0; i < sequence; i++) {
+                                                let colors = materialColors.filter(color => color.id === item + "Id");
+
+                                                // mount colors
+                                                let materialFunc = '';
+                                               if(colors.length > 1) {
+                                                       materialFunc = window[item](colors[0].color, colors[1].color)
+                                               } else if(colors.length == 1) {
+                                                       materialFunc = window[item](colors[0].color)
+                                               } else {
+                                                       materialFunc = window[item]()
+                                               }
+
+                                               // mount images
+                                               const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+                                               const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                               const imgElement = $('<img>').attr('src', svgDataUrl)
+
+                                               $('#necklaceDone').append(imgElement);
+
+                                               quantity++;
+                                        }
+                                });
+                        } else {
+                                for(let i = 0; i < quantityLimit; i++) {
+                                        item = materialItems[Math.floor(Math.random() * materialItems.length)];
+
                                         let colors = materialColors.filter(color => color.id === item + "Id");
 
                                         // mount colors
@@ -691,11 +718,11 @@ function drawNecklace() {
                                         const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
                                         const imgElement = $('<img>').attr('src', svgDataUrl)
 
-                                         $('#necklaceDone').append(imgElement);
+                                        $('#necklaceDone').append(imgElement);
 
-                                         quantity++;
+                                        quantity++;
                                 }
-                        });
+                        }
                 }
         }
 
