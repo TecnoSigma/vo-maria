@@ -193,6 +193,8 @@ $(document).ready(function() {
 
                 createMaterialSequenceForm();
 
+                disableElement($('#confirmMaterialsOrdenationBtn'));
+
                 $('#materialsOrdenation').fadeIn(fadeDefault);
 
                 moveToBottom();
@@ -337,7 +339,13 @@ $(document).ready(function() {
 
                 materialSequence.push({ id: selectedId.replace("sequence", "") + "Id", sequence: selectedItem });
 
-                disableElement($(this));
+                if($(this).val() == '0') {
+                        disableElement($('#confirmMaterialsOrdenationBtn'));
+                } else {
+                        $('#confirmMaterialsOrdenationBtn').removeAttr('disabled');
+
+                        disableElement($(this));
+                }
         });
 });
 
@@ -353,7 +361,7 @@ function createMaterialSequenceForm() {
                 const newSelect = $("<select>", { id: "sequence" + item });
                 newDiv.append(newSelect);
 
-                for (let i = 1; i <= 10; i++) {
+                for (let i = 0; i <= 10; i++) {
                         const newOption = $("<option>", { value: i, text: i });
                         newSelect.append(newOption);
                 }
@@ -643,28 +651,39 @@ function drawNecklace() {
                         });
                 }
         } else {
+                let quantity = 0;
+
                 for(let i = 0; i < quantityLimit; i++) {
+                        if(quantity > quantityLimit) { break; }
 
-                        // fetches a random item from the list
-                        let item = materialItems[Math.floor(Math.random() * materialItems.length)];
-                        let colors = materialColors.filter(color => color.id === item + "Id");
+                        materialItems.forEach(function(item) {
+                                // mount sequence
+                                let sequence = materialSequence
+                                                      .find(sequence => sequence.id === item + "Id")
+                                                      .sequence;
+                                for(let i = 0; i < sequence; i++) {
+                                        let colors = materialColors.filter(color => color.id === item + "Id");
 
-                        // mount colors
-                        let materialFunc = '';
-                        if(colors.length > 1) {
-                                materialFunc = window[item](colors[0].color, colors[1].color);
-                        } else if(colors.length == 1) {
-                                materialFunc = window[item](colors[0].color)
-                        } else {
-                                materialFunc = window[item]()
-                        }
+                                        // mount colors
+                                        let materialFunc = '';
+                                        if(colors.length > 1) {
+                                                materialFunc = window[item](colors[0].color, colors[1].color)
+                                        } else if(colors.length == 1) {
+                                                materialFunc = window[item](colors[0].color)
+                                        } else {
+                                                materialFunc = window[item]()
+                                        }
 
-                        // mount images
-                        const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
-                        const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
-                        const imgElement = $('<img>').attr('src', svgDataUrl)
+                                        // mount images
+                                        const svgBase64 = btoa(unescape(encodeURIComponent(materialFunc)));
+                                        const svgDataUrl = `data:image/svg+xml;base64,${svgBase64}`;
+                                        const imgElement = $('<img>').attr('src', svgDataUrl)
 
-                        $('#necklaceDone').append(imgElement);
+                                         $('#necklaceDone').append(imgElement);
+
+                                         quantity++;
+                                }
+                        });
                 }
         }
 
