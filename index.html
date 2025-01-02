@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   </head>
   <body>
     <div id="svgContainer"></div>
@@ -195,13 +196,12 @@
           </div>
           <div class="dialog">
             <p id="necklaceDoneMsg"></p>
-            <div id="necklaceDone" class="necklace">
-            <!-- <img src="img/necklace.png" alt="Necklace"> -->
-            </div>
             <div class="buttons">
               <button id="downloadBtn">Download</button>
               <button id="createOtherNecklanceBtn">Criar outro fio</button>
               <button id="finishedBtn">Encerrar</button>
+            </div>
+            <div id="necklaceDone" class="necklace">
             </div>
           </div>
         </section>

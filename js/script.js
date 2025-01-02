@@ -288,6 +288,18 @@ $(document).ready(function() {
                 restart();
         });
 
+        $('#downloadBtn').click(function() {
+                const $captureElement = $("#necklaceDone");
+
+                html2canvas($captureElement[0]).then(function (canvas) {
+                        const link = document.createElement("a");
+
+                        link.download = "fio-de-contas.png";
+                        link.href = canvas.toDataURL("image/png");
+                        link.click();
+                });
+        });
+
         $('#materialSelect').change(function() {
                 var selectedImage = $(this).val();
 

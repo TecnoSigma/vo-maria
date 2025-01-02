@@ -222,6 +222,16 @@ label {
         margin-right: 10px;
 }
 
+.dialogs .necklace-image .dialog .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+}
+
+.dialogs .necklace-image .dialog .buttons button {
+        font-size: 0.6rem;
+}
+
 .necklace {
         border: 1px solid #006600;
         border-radius: 10px;
