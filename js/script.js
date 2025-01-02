@@ -5,12 +5,9 @@ let materialUnique = false;
 let materialFamilies = [];
 let materialDistribution = '';
 let materialSequence = [];
-let materialPrimaryColor = '';
-let materialSecondaryColor = '';
 let materialColors = [];
 let materialAllItems = [];
 let materialItems = [];
-let materialTypes = [];
 let materialsColorDescription = [];
 
 $(document).ready(function() {
@@ -84,9 +81,11 @@ $(document).ready(function() {
                 moveToBottom();
 
                 disableElement($('#confirmMaterialUniqueBtn'));
+                disableElement($('#confirmMaterialFamilyBtn'));
                 disableElement($(this));
         });
 
+        // Button of materials-family section that prepares the materials-color section
         $('#confirmMaterialFamilyBtn').click(function() {
                 const onlyOneColor = ['coral'];
                 const withoutColor = [
@@ -335,6 +334,12 @@ $(document).ready(function() {
 
                         $(this).css('background-color', '#006600');
 
+                        if(materialItems.length < 2) {
+                                disableElement($('#confirmMaterialFamilyBtn'));
+                        } else {
+                                $('#confirmMaterialFamilyBtn').removeAttr('disabled');
+                        }
+
                 }
         });
 
@@ -460,12 +465,9 @@ function restart() {
         materialFamilies = [];
         materialDistribution = '';
         materialSequence = [];
-        materialPrimaryColor = '';
-        materialSecondaryColor = '';
         materialColors = [];
         materialAllItems = [];
         materialItems = [];
-        materialTypes = [];
 
         $('#sayYourName').fadeOut(fadeDefault);
         $('#createNecklace').fadeOut(fadeDefault);
