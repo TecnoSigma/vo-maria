@@ -17,19 +17,18 @@ top to bottom direction
 
 ****_ variado
 *****[#green] Família do material\n<size: 10>- corais;\n<size: 10>- entremeios;\n<size: 10>- miçangas;\n<size: 10>- muranos;
-******[#red] Tipo de material\n<size: 10>- liso;\n<size: 10>- rajado;\n<size: 10>- metálico;
-*******[#green] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
+******[#green] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
 
-********[#green] Distribuição\n<size: 10>- aleatório;\n<size: 10>- ordenado;
-*********_ aleatório
+*******[#green] Distribuição\n<size: 10>- aleatório;\n<size: 10>- ordenado;
+********_ aleatório
+*********[#green] Ver fio
+**********[#green] Imagem do fio
+***********[#green] Começar de novo
+************[#green] Agradecimentos
+********_ ordenado
+*********[#green] Sequência\n<size: 10>- iguais;\n<size: 10>- diferentes;
 **********[#green] Ver fio
 ***********[#green] Imagem do fio
 ************[#green] Começar de novo
 *************[#green] Agradecimentos
-*********_ ordenado
-**********[#lightblue] Sequência\n<size: 10>- iguais;\n<size: 10>- diferentes;
-*********** Ver fio
-************ Imagem do fio
-*************[#green] Começar de novo
-**************[#green] Agradecimentos
 @endmindmap

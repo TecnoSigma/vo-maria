@@ -411,11 +411,18 @@ function createMaterialColorForm(materialItems) {
                 const newDiv = $("<div>", { class: "colors", id: 'colorsHexa' });
                 $("#materialColorDiv").append(newDiv);
 
-                const newLabel1 = $("<label>", { id: "primaryColorLabel", text: "Cor Primária" });
+                const newLabel1 = $("<label>", { id: "primaryColorLabel",
+                                                 text: "Cor Primária",
+                                                 css: { 'font-size': '2.5rem' }});
                 newDiv.append(newLabel1);
                 const newLine1 = $("<br>");
                 newDiv.append(newLine1);
-                const newInput1 = $("<input>", { id: itemId, type: "color", value: "#000000" });
+                const newInput1 = $("<input>", { id: itemId,
+                                                 type: "color",
+                                                 value: "#000000",
+                                                 css: { width: '100px',
+                                                        height: '50px',
+                                                        cursor: 'pointer' }});
                 newDiv.append(newInput1);
 
                 if(itemName.includes('rajada') || itemName.includes('rajado')) {
@@ -424,11 +431,18 @@ function createMaterialColorForm(materialItems) {
                         const newLine3 = $("<br>");
                         newDiv.append(newLine3);
 
-                        const newLabel2 = $("<label>", { id: "secondaryColorLabel", text: "Cor Secundária",value: "#000000" });
+                        const newLabel2 = $("<label>", { id: "secondaryColorLabel",
+                                                         text: "Cor Secundária",
+                                                         css: { 'font-size': '2.5rem' }});
                         newDiv.append(newLabel2);
                         const newLine4 = $("<br>");
                         newDiv.append(newLine4);
-                        const newInput2 = $("<input>", { id: itemId, type: "color", value: "#000000" });
+                        const newInput2 = $("<input>", { id: itemId,
+                                                         type: "color",
+                                                         value: "#000000",
+                                                         css: { width: '100px',
+                                                                height: '50px',
+                                                                cursor: 'pointer' }});
                         newDiv.append(newInput2);
                 }
         });

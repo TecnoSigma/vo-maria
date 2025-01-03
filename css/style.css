@@ -3,7 +3,10 @@
 :root {
         --font-family: 'Ubuntu', sans-serif;
 
+        --dialog-font-size: 2.5rem;
         --dialog-font-color: #006600;
+
+        --dialog-font-size-component: 1.8rem;
 
         --dialog-button: #CDA2BE;
         --dialog-font-color-button: #ffffff;
@@ -12,7 +15,8 @@
 
         --dialog-label: #006600;
 
-        --dialog-select: #CDA2BE;
+        --dialog-select: #CDA2BE
+
         --dialog-font-color-select: #ffffff;
 
         --dialog-select-selected: #CDA2BE;
@@ -28,6 +32,7 @@ html {
 }
 
 button {
+        width: 300px;
         display: inline-block;
         padding: 10px 20px;
         background-color: var(--dialog-button);
@@ -37,6 +42,7 @@ button {
         cursor: pointer;
         box-shadow: var(--shadow);
         transition: background-color 0.3s, color 0.3s;
+        font-size: 1.8rem;
         text-transform: uppercase;
 }
   button:hover {
@@ -90,12 +96,12 @@ label {
 }
 
 .container {
-        padding: 50px 200px;
+        padding: 0px;;
 }
 
 .separator {
         display: block;
-        width: 100%;
+        width: 160%;
         height: 1px;
         background-color: var(--separator-color);
         margin: 10px 0px;
@@ -106,7 +112,7 @@ label {
 }
 
 .dialog p {
-        font-size: 1.5rem;
+        font-size: var(--dialog-font-size);
         color: var(--dialog-font-color);
 }
 
@@ -132,7 +138,7 @@ label {
 }
 
 .avatar .avatar-name span {
-        font-size: 1.5rem;
+        font-size: var(--dialog-font-size);
         font-weight: bold;
         color: var(--dialog-font-color);
 }
@@ -164,7 +170,7 @@ label {
         outline: none;
         border-bottom: 1px solid #006600;
         background-color: transparent;
-        font-size: 1.5rem;
+        font-size: var(--dialog-font-size-component);
         color: var(--dialog-font-color);
 }
   .dialogs .say-your-name .dialog input:focus {
@@ -189,11 +195,12 @@ label {
 
 .dialogs .materials-family .dialog .materials select {
         overflow-y: auto;
+        font-size: var(--dialog-font-size-component);
 }
 
 .dialogs .materials-family .dialog .material-images img {
         margin: 0px 20px 20px 0px;
-        width: 80px;
+        width: 150px;
         cursor: pointer;
         transform: scale(1);
         transition: transform 0.3s;
@@ -229,7 +236,7 @@ label {
 }
 
 .dialogs .necklace-image .dialog .buttons button {
-        font-size: 0.6rem;
+        font-size: var(--dialog-font-size-component);
 }
 
 .necklace {
@@ -244,5 +251,5 @@ label {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        width: 30px;
+        width: 100px;
 }
