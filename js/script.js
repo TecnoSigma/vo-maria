@@ -368,7 +368,8 @@ function createMaterialSequenceForm() {
                 const newLine1 = $("<br>");
                 newDiv.append(newLine1);
 
-                const newSelect = $("<select>", { id: "sequence" + item });
+                const newSelect = $("<select>", { id: "sequence" + item,
+                                                  css: { 'font-size': '1.8rem' }});
                 newDiv.append(newSelect);
 
                 for (let i = 0; i <= 10; i++) {
