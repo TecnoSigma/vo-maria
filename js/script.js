@@ -1,6 +1,7 @@
 const quantityLimit = 50;
 const fadeDefault = 500;
 
+let userName = '';
 let materialUnique = false;
 let materialFamilies = [];
 let materialDistribution = '';
@@ -16,7 +17,8 @@ $(document).ready(function() {
         // Button of say-your-name section that prepares the necklace creation section
         $('#confirmYourNameBtn').click(function() {
                 if ($('#userName').val() != '') {
-                        let userName = $('#userName').val();
+                        userName = $('#userName').val();
+
                         $('#userQuestion').text(userName + ', quer criar seu fio?');
 
                         $('#createNecklace').fadeIn(fadeDefault);
@@ -176,6 +178,15 @@ $(document).ready(function() {
                 moveToBottom();
 
                 disableElement($('#confirmRandomDistributionBtn'));
+                disableElement($(this));
+        });
+
+        $('#confirmStartBtn').click(function() {
+                ($('#sayYourName').fadeIn(fadeDefault));
+
+                moveToBottom();
+
+                disableElement($('#confirmStartBtn'));
                 disableElement($(this));
         });
 
@@ -469,6 +480,7 @@ function disableElement(element) {
 }
 
 function restart() {
+        userName = '';
         materialUnique = false;
         materialFamilies = [];
         materialDistribution = '';
@@ -476,6 +488,7 @@ function restart() {
         materialColors = [];
         materialAllItems = [];
         materialItems = [];
+        materialsColorDescription = [];
 
         $('#sayYourName').fadeOut(fadeDefault);
         $('#createNecklace').fadeOut(fadeDefault);
@@ -499,7 +512,7 @@ function restart() {
 
         showSecondaryColor();
 
-        $('#sayYourName').fadeIn(fadeDefault);
+        $('#introduction').fadeIn(fadeDefault);
 }
 
 function removeTransparentOption() {
@@ -736,7 +749,7 @@ function drawNecklace() {
                 }
         }
 
-        $('#necklaceDoneMsg').text('Seu fio está pronto!');
+        $('#necklaceDoneMsg').text(userName + '! Seu fio está pronto!');
 }
 
 function searchMaterialName(materialId) {

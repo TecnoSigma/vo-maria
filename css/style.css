@@ -143,6 +143,7 @@ label {
         color: var(--dialog-font-color);
 }
 
+.dialogs .introduction,
 .dialogs .say-your-name,
 .dialogs .create-necklace,
 .dialogs .materials-diversification,
