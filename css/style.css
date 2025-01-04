@@ -196,7 +196,9 @@ label {
 
 .dialogs .materials-family .dialog .materials select {
         overflow-y: auto;
+        background-color: var(--dialog-select);
         font-size: var(--dialog-font-size-component);
+        color: var(--dialog-font-color-select);
 }
 
 .dialogs .materials-family .dialog .material-images img {
