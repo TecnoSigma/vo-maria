@@ -1,0 +1,34 @@
+@startmindmap
+title Happy Path
+
+top to bottom direction
+
+*[#green] Diga seu nome
+**[#green] Criar fio
+
+***[#green] Diversidade\n<size: 10>- único;\n<size: 10>- variado;
+****_ único
+*****[#green] Família do material\n<size: 10>- corais;\n<size: 10>- entremeios;\n<size: 10>- miçangas;\n<size: 10>- muranos;
+******[#green] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
+*******[#green] Ver fio
+********[#green] Imagem do fio
+*********[#green] Começar de novo
+**********[#green] Agradecimentos
+
+****_ variado
+*****[#green] Família do material\n<size: 10>- corais;\n<size: 10>- entremeios;\n<size: 10>- miçangas;\n<size: 10>- muranos;
+******[#green] Cor\n<size: 10>- uma cor (liso);\n<size: 10>- duas cores (rajado);\n<size: 10>- sem cor (metálico);
+
+*******[#green] Distribuição\n<size: 10>- aleatório;\n<size: 10>- ordenado;
+********_ aleatório
+*********[#green] Ver fio
+**********[#green] Imagem do fio
+***********[#green] Começar de novo
+************[#green] Agradecimentos
+********_ ordenado
+*********[#green] Sequência\n<size: 10>- iguais;\n<size: 10>- diferentes;
+**********[#green] Ver fio
+***********[#green] Imagem do fio
+************[#green] Começar de novo
+*************[#green] Agradecimentos
+@endmindmap

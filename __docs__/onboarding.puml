@@ -1,0 +1,87 @@
+@startuml
+title "Onboarding do usuário\n"
+
+split
+        (A)
+        -[hidden]->
+split again
+        start
+        #palegreen:"Motumbá! Mukuiyu! Kolofé!"\n\n"Como você se chama?">
+        #lightblue:"João"<
+        #palegreen:"Quer criar seu fio?">
+        if () then (sim)
+                #lightgreen:"Você utilizará um único material ou diversos?">
+                note right
+                        Material único
+                        ou
+                        Vários materiais
+                end note
+
+                #palegreen:"Quantos materiais você quer usar?">
+                         #lightblue:"999"<
+                 #palegreen:"Quais materiais que você quer usar?">
+                 if() then (material único)
+                         #lightblue:"Material #1"<
+                 else (materiais diversos)
+                         #lightblue:"Material #n"<
+                         note right
+                                 Escolha múltiplos materiais
+                         end note
+                         #lightgreen:"Como você quer distribuir os materiais?">
+                         if () then (forma ordenada)
+                                 #palegreen:"Escolha a ordenação">
+                                 #lightblue:"7"<
+                         else (forma aleatória)
+                         endif
+                 endif
+                 repeat
+                 #palegreen:"Qual é o tipo do material?">
+                 if () then (liso)
+                         #palegreen:"Escolha a cor">
+                 else (rajado)
+                         #palegreen:"Escolha as cores">
+                         note right
+                                 Primeira
+                                 e segunda cor
+                         end note
+                 endif
+                 repeat while (Existem mais materiais?) is (sim) not (não)
+                 #palegreen:"Quer ver seu fio?">
+                 if () then (sim)
+                         :Gera o fio|
+                         :Apresenta resultados;
+                         fork
+                                 :Renderiza Imagem|
+                         fork again
+                                 :Cria Permalink|
+                         fork again
+                                 :Disponibiliza Download|
+                         end merge
+                         #palegreen:"Quer criar outro fio?">
+                         if () then (sim)
+                                 :Volta para o início;
+                                 end
+                         else (não)
+                                 #palegreen:"Se precisar, chama a Vó!">
+                                 #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                                 end
+                         endif
+                 else (não)
+                         #palegreen:"Quer começar de novo?">
+                         if () then (sim)
+                                 :Voltar do início;
+                                 (A)
+                                 -[hidden]->
+                         else (não)
+                                 #palegreen:"Se precisar, chama a Vó!">
+                                 #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                                 end
+                         endif
+                 endif
+        else (não)
+                #palegreen:"Se precisar, chama a Vó!">
+                #palegreen:"Motumbá! Mukuiyu! Kolofé!">
+                end
+        endif
+end split
+@enduml

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+  <head>
+    <title>Vó Maria</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <div id="svgContainer"></div>
+    <div class="container">
+      <div class="dialogs">
+
+        <!-- Starts intro section -->
+        <section class="introduction show-card" id="introduction">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Grand Mamma">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Motumbá! Mukuiyu! Kolofé!</p>
+            <p>Monte o modelo do seu fio de contas!</p>
+            <div class="buttons">
+              <button id="confirmStartBtn">Iniciar</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends intro section -->
+
+        <!-- Starts say-your-name section -->
+        <section class="say-your-name hide-card" id="sayYourName">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Grand Mamma">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Motumbá! Mukuiyu! Kolofé!</p>
+            <p>Como você se chama?</p>
+            <input type="text" id="userName">
+            <div class="buttons">
+              <button id="confirmYourNameBtn">Confirmar</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends say-your-name section -->
+
+        <!-- Starts create-necklace section -->
+        <section class="create-necklace hide-card" id="createNecklace">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p id="userQuestion"></p>
+            <div class="buttons">
+              <button id="yesCreateNecklaceBtn">Sim</button>
+              <button id="noCreateNecklaceBtn">Não</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends create-necklace section -->
+
+        <!-- Starts materials-diversification section -->
+        <section class="materials-diversification hide-card" id="materialsDiversification">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Você utilizará um único material ou diversos?</p>
+            <div class="buttons">
+              <button id="confirmMaterialUniqueBtn">Único</button>
+              <button id="confirmMaterialVariousBtn">Diversos</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends materials-diversification section -->
+
+        <!-- Starts inform-material-family section -->
+        <section class="materials-family hide-card" id="materialsFamily">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p id="materialQuestion"></p>
+            <div class="materials">
+              <select id="materialSelect">
+                <option value="corals">Corais</option>
+                <option value="crystals">Cristais</option>
+                <option value="insets">Entremeios</option>
+                <option value="beads">Miçangas</option>
+                <option value="muranos">Muranos</option>
+              </select>
+            </div>
+            <div class="material-images" id="materialImages">
+            </div>
+            <div class="buttons">
+              <button id="confirmMaterialFamilyBtn">Confirmar</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends inform-material-family section -->
+
+        <!-- Starts materials-color section -->
+        <section class="materials-color hide-card" id="materialsColor">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog" id="materialColorDiv">
+          </div>
+        </section>
+        <!-- Ends materials-color section -->
+
+        <!-- Starts materials-distribution section -->
+        <section class="materials-distribution hide-card" id="materialsDistribution">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Como você quer distribuir os materiais?</p>
+            <div class="buttons">
+              <button id="confirmRandomDistributionBtn">Aleatória</button>                                          <button id="confirmOrderedDistributionBtn">Ordenada</button>
+            </div>
+          </div>                                                                                              </section>
+        <!-- Ends materials-distribution section -->
+                                                                                                              <!-- Starts ordenation section -->
+        <section class="materials-ordenation hide-card" id="materialsOrdenation">                               <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">                                                      </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Qual é a sequência de materiais?</p>
+            <div class="sequence" id="materialsSequence">
+            </div>
+            <div class="buttons">
+              <button id="confirmMaterialsOrdenationBtn">Confirmar</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends ordenation section -->
+
+        <!-- Starts see-necklace section -->
+        <section class="see-necklace hide-card" id="seeNecklace">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Quer ver seu fio?</p>
+            <div class="buttons">
+              <button id="yesSeeNecklanceBtn">Sim</button>
+              <button id="noSeeNecklanceBtn">Não</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends see-necklace section -->
+
+        <!-- Starts necklace-images necklace-image section -->
+        <section class="necklace-image hide-card" id="necklaceImage">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p id="necklaceDoneMsg"></p>
+            <div class="buttons">
+              <button id="downloadBtn">Download</button>
+              <button id="createOtherNecklanceBtn">Criar outro fio</button>
+              <button id="finishedBtn">Encerrar</button>
+            </div>
+            <div id="necklaceDone" class="necklace">
+            </div>
+          </div>
+        </section>
+        <!-- Ends necklace-image section -->
+
+        <!-- Starts start-again section -->
+        <section class="start-again hide-card" id="startAgain">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Quer começar de novo?</p>
+            <div class="buttons">
+              <button id="yesStartAgainBtn">Sim</button>
+              <button id="noStartAgainBtn">Não</button>
+            </div>
+          </div>
+        </section>
+        <!-- Ends start-again section -->
+
+        <!-- Starts regards section -->
+        <section class="call-grandmamma hide-card" id="callGrandmamma">
+          <div class="avatar">
+            <div class="avatar-image">
+              <img src="images/grandmamma.png" alt="Avatar">
+            </div>
+            <div class="avatar-name">
+              <span>Vó Maria</span>
+              <div class="separator"></div>
+            </div>
+          </div>
+          <div class="dialog">
+            <p>Se precisar, chama a Vó!</p>
+            <p>Motumbá! Mukuiyu! Kolofé!</p>
+          </div>
+        </section>
+        <!-- Ends regards section -->
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript" src="js/templates/beads.js"></script>
+  <script type="text/javascript" src="js/templates/corals.js"></script>
+  <script type="text/javascript" src="js/templates/crystals.js"></script>
+  <script type="text/javascript" src="js/templates/insets.js"></script>
+  <script type="text/javascript" src="js/templates/muranos.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</html>
