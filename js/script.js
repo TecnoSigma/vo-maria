@@ -74,7 +74,7 @@ $(document).ready(function() {
 
                 $('#materialQuestion').text('Quais materiais você quer usar?');
 
-                $('#materialSelect').css({'height': '120px'});
+                $('#materialSelect').css({'height': '120px', 'font-size': '1.8rem', 'color': '#CDA2BE' });
 
                 materialList.setAttribute('multiple', true);
 
@@ -284,11 +284,11 @@ $(document).ready(function() {
         });
 
         $('#createOtherNecklanceBtn').click(function() {
-                restart();
+                location.reload();
         });
 
         $('#yesStartAgainBtn').click(function() {
-                restart();
+                location.reload();
         });
 
         $('#downloadBtn').click(function() {
@@ -329,6 +329,8 @@ $(document).ready(function() {
                                 disableElement(obj);
                                 obj.css('background-color', 'transparent');
                         });
+
+                        $(this).css('background-color', '#006600');
 
                         materialItems.push(imageId);
 
@@ -373,14 +375,17 @@ $(document).ready(function() {
 function createMaterialSequenceForm() {
         newDiv = $('#materialsSequence');
         materialItems.forEach(function(item) {
-                const newLabel = $("<label>", { text: searchMaterialName(item + "Id") });
+                const newLabel = $("<label>", { text: searchMaterialName(item + "Id"),
+                                                css: { 'font-size': '2.5rem' }});
                 newDiv.append(newLabel);
 
                 const newLine1 = $("<br>");
                 newDiv.append(newLine1);
 
                 const newSelect = $("<select>", { id: "sequence" + item,
-                                                  css: { 'font-size': '1.8rem' }});
+                                                  css: { 'font-size': '1.8rem',
+                                                         'background-color': '#CDA2BE',
+                                                         'color': '#FFFFFF' }});
                 newDiv.append(newSelect);
 
                 for (let i = 0; i <= 10; i++) {
@@ -416,7 +421,7 @@ function createMaterialColorForm(materialItems) {
 
                 const newParagraph = $("<p>", {
                         id: "materialColorQuestion",
-                        text: "Qual é o cor do  material de " + itemName +"?"
+                        text: "Qual é a cor do(a) " + itemName +"?"
                 });
                 $("#materialColorDiv").append(newParagraph);
 
@@ -424,7 +429,7 @@ function createMaterialColorForm(materialItems) {
                 $("#materialColorDiv").append(newDiv);
 
                 const newLabel1 = $("<label>", { id: "primaryColorLabel",
-                                                 text: "Cor Primária",
+                                                 text: "Cor principal",
                                                  css: { 'font-size': '2.5rem' }});
                 newDiv.append(newLabel1);
                 const newLine1 = $("<br>");
@@ -437,14 +442,14 @@ function createMaterialColorForm(materialItems) {
                                                         cursor: 'pointer' }});
                 newDiv.append(newInput1);
 
-                if(itemName.includes('rajada') || itemName.includes('rajado')) {
+                if(itemName.includes('rajad')) {
                         const newLine2 = $("<br>");
                         newDiv.append(newLine2);
                         const newLine3 = $("<br>");
                         newDiv.append(newLine3);
 
                         const newLabel2 = $("<label>", { id: "secondaryColorLabel",
-                                                         text: "Cor Secundária",
+                                                         text: "Cor de fundo",
                                                          css: { 'font-size': '2.5rem' }});
                         newDiv.append(newLabel2);
                         const newLine4 = $("<br>");
@@ -477,54 +482,6 @@ function sleep() {
 
 function disableElement(element) {
         element.attr('disabled', 'disabled');
-}
-
-function restart() {
-        userName = '';
-        materialUnique = false;
-        materialFamilies = [];
-        materialDistribution = '';
-        materialSequence = [];
-        materialColors = [];
-        materialAllItems = [];
-        materialItems = [];
-        materialsColorDescription = [];
-
-        $('#sayYourName').fadeOut(fadeDefault);
-        $('#createNecklace').fadeOut(fadeDefault);
-        $('#materialsDiversification').fadeOut(fadeDefault);
-        $('#materialsFamily').fadeOut(fadeDefault);
-        $('#materialsDistribution').fadeOut(fadeDefault);
-        $('#materialsOrdenation').fadeOut(fadeDefault);
-        $('#materialsColor').fadeOut(fadeDefault);
-        $('#seeNecklace').fadeOut(fadeDefault);
-        $('#necklaceImage').fadeOut(fadeDefault);
-        $('#startAgain').fadeOut(fadeDefault);
-        $('#callGrandmamma').fadeOut(fadeDefault);
-
-        sleep();
-
-        $('button').each(function() { $(this).prop('disabled', false); });
-        $('select').each(function() { $(this).prop('disabled', false); });
-
-        $('#primaryColorInput').val('#000000');
-        $('#secondaryColorInput').val('#000000');
-
-        showSecondaryColor();
-
-        $('#introduction').fadeIn(fadeDefault);
-}
-
-function removeTransparentOption() {
-        const select = document.getElementById("MaterialTypeSelect");
-        const valueToRemove = "transparente";
-
-        for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].value === valueToRemove) {
-                        select.remove(i);
-                        break;
-                }
-         }
 }
 
 function hideSecondaryColor() {
